@@ -6,14 +6,40 @@ body {
 }
 
 table {
-	margin: auto;
+	margin: 5% 1%;
 	border-width: 1px;
 	border-style: solid;
+	width: 98%;
 }
 
 td {
 	align-content: center;
 	padding: 1%;
 	overflow: visible;
+	width: 10%;
+	height: 10%;
 }
-
+input {
+	background-color: #a2bae5;
+}
+#td1 {
+	background-color: #a2bae5;
+	font-style: italic;
+	text-shadow: 2px 2px 3px #16ff16;
+	font-size: 1.25rem;
+}
+#por {
+	background-color: #a2bae5;
+	font-style: italic;
+	font-size: 1.25rem;
+}
+#results {
+	background-color: #a2bae5;
+	font-style: italic;
+	font-size: 1.25rem;
+}
+tr.jaja {
+	background-color: #a2bae5;
+	font-style: italic;
+	font-size: 1.25rem;
+}
