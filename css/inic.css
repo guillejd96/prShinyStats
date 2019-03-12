@@ -19,40 +19,78 @@ td {
 	width: 10%;
 	height: 10%;
 }
-input {
+input.jiji {
 	background-color: #a2bae5;
+	width: 1.25rem;
+	height: 1.25rem;
 }
 #td1 {
-	background-color: #a2bae5;
 	font-style: italic;
 	font-size: 1.25rem;
 }
 #por {
-	background-color: #a2bae5;
 	font-style: italic;
 	font-size: 1.25rem;
 }
 #results {
-	background-color: #a2bae5;
 	font-style: italic;
 	font-size: 1.25rem;
 }
 
 #export{
-	background-color: #003996;
 	font-size: 1.25rem;
 }
-
-tr.jaja {
-	background-color: #a2bae5;
-	font-style: italic;
-	font-size: 1.25rem;
 }
 
 .subir{
     padding: 5px 10px;
-    background: #606060;
+    background: #ff1616;
     color:#fff;
     border:0px solid black;
     border-radius: 1%;
+}
+
+#puti ul {
+    list-style:none;
+    margin:0% 1% 2%;
+    padding:1%;
+}
+
+#puti ul a {
+    display:block;
+    color:#ff1616;
+    padding:10px;
+}
+
+#puti ul li {
+    position:relative;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+#puti ul li:hover {
+    background:#ff1616;
+}
+
+#puti ul ul {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    padding:0;
+}
+
+#puti ul ul li {
+    float:none;
+    width:150px
+}
+
+#puti ul ul a {
+    line-height:120%;
+    padding:10px 15px;
+}
+
+#puti ul li:hover > ul {
+    display:block;
 }

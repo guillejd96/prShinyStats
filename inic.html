@@ -7,15 +7,21 @@
 </head>
 <body onload="load()">
 	<table border = "1">
-		<tr class="jaja">
-			<td colspan="5">Personas</td>
-			<td><input type="button" value="+" onclick="SumarPersona()"></td>
-			<td><input type="button" value="-" onclick="RestarPersonas()"></td>
-			<td colspan="2">
-				<input type="file" id="file-input"/>
-			</td>
-			<td><input type="button" value="Clean" onclick="clean()"></td>
-		</tr>
+		<nav id="puti">
+			<ul>
+			  <li><a href="#"><input type="button" value="Clean" onclick="clean()"></a></li>
+			  <li><a href="#">Personas</a>
+			    <ul>
+			      <li><a href="#"><li id="td1"></a></li> 
+			      <li><a href="#"> <input type="button" value="+" onclick="SumarPersona() " class="jiji"> </a></li>
+			      <li><a href="#"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></a></li>
+			    </ul>
+			  </li>
+			  <li><input type="file" id="file-input"/></li>
+			  <li><input type="button" value="Exportar" onclick="changeExport()"></li>
+			  <li><input type="button" value="Resumen" onclick="resume()"></li>
+			</ul>
+		</nav>
 		<tr>
 			<td>Bulbasaur<br><input type="button" value="+" onclick="Sumar(0)"> <input type="button" value="-" onclick="Restar(0)"></td>
 			<td>Charmander<br><input type="button" value="+" onclick="Sumar(1)"> <input type="button" value="-" onclick="Restar(1)"></td>
@@ -130,10 +136,7 @@
 			<td> Groudon<br><input type="button" value="+" onclick="Sumar(92)"> <input type="button" value="-" onclick="Restar(92)"></td>
 			<td>Shinx<br><input type="button" value="+" onclick="Sumar(93)"> <input type="button" value="-" onclick="Restar(93)"></td>
 			<td>Drifloon <br><input type="button" value="+" onclick="Sumar(94)"> <input type="button" value="-" onclick="Restar(94)"></td>
-			<td> Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
-			<td id="td1" colspan="2"></td>
-			<td id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
-			<td><input type="button" value="Resumen" onclick="resume()"></td>
+			<td colspan="5"> Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
 		</tr>
 		<tr>
 			<td colspan="10" id="results"></td>
