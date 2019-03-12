@@ -2,6 +2,15 @@
 	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var por = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var oneTime= false;
+	var nombres= ["Bulbasur","Charmander","Squirtle","Squirtle (con gafas)","Caterpie","Rattata","Pichu","Pikachu","Raichu (Alola)","Pichu (gorro clebracion)","Pikachu (gorro celebracion)","Pikachu (gorra)","Pikachu (sombrero Halloween)",
+	"Pichu (sombrero Halloween)","Pichu (gorro Navidad)","Pikachu (gorro Navidad)","Pikachu (flores)","Raichu (flores)","Sandshrew","Nidoran","Cleffa","Psyduck","Mankey","Growlithe","Machop","Geodude","Ponyta","Magnemite","Grimer","Shellder",
+	"Gastly","Drowzee","Krabby","Cubone","Marowak (Alola)","Elekid","Magby","Pinsir","Magikarp","Eevee","Eevee (flores)","Omanyte","Kabuto","Aerodactyl","Articuno","Zapdos","Moltres","Dratini","Chikorita","Cyndaquil","Totodile","Togepi","Natu",
+	"Mareep","Azurril","Sunkern","Murkrow","Misdreavus","Wynaut","Pineco","Snubbul","Swinub","Delibird","Houndour","Larvitar","Lugia","Ho-oh","Poochyena","Zigzagoon","Taillow","Wingull","Makuhita","Sableye","Aron","Meditite","Plusle","Minum",
+	"Budew","Roselia","Wailmer","Spoink","Swablu","Feebas","Shuppet","Duskull","Absol","Snorunt","Clamperl","Luvdisc","Beldum","Latias","Kyogre","Groudon","Shinx","Drifloon","Meltan"];
+
+	var mayorPorcentaje = [0,0,0,0,0];
+	var menorPorcentaje = [0,0,0,0,0];
+
 	function leerArchivo(e) {
   		var archivo = e.target.files[0];
   		if (!archivo) {
@@ -29,7 +38,6 @@
 			oneTime=true;
 			var input = document.getElementById("file-input");
 			input.addEventListener('change', leerArchivo, false);
-			if(input==null) alert("input es null");
 		}
 		setUp();
 		var td = document.getElementById("td1");
@@ -123,7 +131,75 @@
 	    }
 	}
 
-	function importFile(){
-		var filename = document.getElementById("import_file");
-		alert(filename.files[0].value);
+	function resume(){
+		calcularMayores();
+		calcularMenores();
+		showResume();
+	}
+
+	function calcularMayores(){
+		var max1=0,max2=0,max3=0,max4=0,max5=0
+		for(var i=0;i<96;i++){
+			if(por[i]>por[max5]){
+				if(por[i]>por[max4]){
+					if(por[i]>por[max3]){
+						if(por[i]>por[max2]){
+							if(por[i]>por[max1]){
+								max1=i;
+							} else {
+								max2=i;
+							}
+						} else {
+							max3=i;
+						}
+					} else {
+						max4=i;
+					}
+				} else {
+					max5=i;
+				}
+			}
+		}
+		mayorPorcentaje = [max1,max2,max3,max4,max5];
+	}
+
+	function calcularMenores(){
+		var min1=1000000,min2=1000000,min3=1000000,min4=1000000,min5=1000000;
+		for(var i=0;i<96;i++){
+			if(por[i]>0){
+				if(por[i]<por[min5]){
+					if(por[i]<por[min4]){
+						if(por[i]<por[min3]){
+							if(por[i]<por[min2]){
+								if(por[i]<por[min1]){
+									max1=i;
+								} else {
+									max2=i;
+								}
+							} else {
+								max3=i;
+							}
+						} else {
+							max4=i;
+						}
+					} else {
+						max5=i;
+					}
+				}
+			}
+		}
+		menorPorcentaje = [min1,min2,min3,min4,min5];
+	}
+
+	function showResume(){
+		var newTable = document.createElement("table");
+		newTable.border=1;
+		newTable.id="newTable";
+		var column1 = document.createElement("td");
+		var column2 = document.createElement("td");
+
+		newTable.appendChild(column1);
+		newTable.appendChild(column2);
+
+		document.body.appendChild(newTable);
 	}

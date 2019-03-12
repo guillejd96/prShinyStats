@@ -6,7 +6,7 @@ body {
 }
 
 table {
-	margin: 5% 1%;
+	margin: 3% 1%;
 	border-width: 1px;
 	border-style: solid;
 	width: 98%;
@@ -25,7 +25,6 @@ input {
 #td1 {
 	background-color: #a2bae5;
 	font-style: italic;
-	text-shadow: 2px 2px 3px #16ff16;
 	font-size: 1.25rem;
 }
 #por {

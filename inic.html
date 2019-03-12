@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Inic shinyStats</title>
-	<link rel="stylesheet" type="text/css" href="inic.css">
-	<script type="text/javascript" src="inic.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/inic.css">
+	<script type="text/javascript" src="js/inic.js"></script>
 </head>
 <body onload="load()">
 	<table border = "1">
@@ -132,7 +132,8 @@
 			<td>Drifloon <br><input type="button" value="+" onclick="Sumar(94)"> <input type="button" value="-" onclick="Restar(94)"></td>
 			<td> Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
 			<td id="td1" colspan="2"></td>
-			<td id="export" colspan="2"><input type="button" value="Exportar" onclick="changeExport()"></td>
+			<td id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
+			<td><input type="button" value="Resumen" onclick="resume()"></td>
 		</tr>
 		<tr>
 			<td colspan="10" id="results"></td>
