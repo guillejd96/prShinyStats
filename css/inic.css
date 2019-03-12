@@ -4,12 +4,14 @@ body {
 	margin: 0 auto;
 	font-family: Comic Sans;
 }
-
 table {
 	margin: 3% 1%;
 	border-width: 1px;
 	border-style: solid;
 	width: 98%;
+    position: absolute;
+    top: 16%;
+    z-index: 2;
 }
 
 td {
@@ -21,8 +23,9 @@ td {
 }
 input.jiji {
 	background-color: #a2bae5;
-	width: 1.25rem;
-	height: 1.25rem;
+	width: 1.75rem;
+	height: 1.75rem;
+    margin: 0% 1%;
 }
 #td1 {
 	font-style: italic;
@@ -58,7 +61,7 @@ input.jiji {
 
 #puti ul a {
     display:block;
-    color:#ff1616;
+    color:#ff16ff;
     padding:10px;
 }
 
@@ -94,3 +97,35 @@ input.jiji {
 #puti ul li:hover > ul {
     display:block;
 }
+.contenedor {
+    display: flex;
+    width: 16%;
+    position: fixed;
+    top: 4%;
+    height: 3%;
+    background-color: blue;
+    padding: 0.75rem;
+}
+.contenido {
+    width: 14%;
+}
+.Personas { 
+    list-style: none; }
+.fondo {
+    font-size: 16rem;
+    text-align: center;
+    margin: 15% 25%;
+    position: fixed;
+    top: 0%;
+    opacity: 0.25;
+    font-weight: bolder;
+    font-family: fantasy;
+    z-index: 1;
+}
+/*El menú hecho con la id "puti" es cogida de internet la de .contenedor .
+contenido es mía que es mucho más sencilla, la entiendo la otra algunas cosas nose,
+ y te dejo las dos ya eliges cual usamos. Nose porqe pero no se puede mostrar el numero 
+ de personas en los dos menus a la vez pero si funcionan bien los botones es elegir uno
+ simplemente lo q falta, si qitas el mio veras q aparece el numero de personas q sumes o
+ restes encima de los botones de sumar y restar. Tambien le he puesto un fondo aunque sea
+ un simple texto pa no tener que cargar con ninguna imagen como fondo o tener un color.

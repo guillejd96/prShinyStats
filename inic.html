@@ -7,6 +7,14 @@
 </head>
 <body onload="load()">
 	<table border = "1">
+		<div.contenedor>
+			<div.contenido><input type="button" value="Clean" onclick="clean()"></div>
+			<div.contenido><details><summary>Personas</summary><ul class="Personas"><li id="td1"></li><li><input type="button" value="+" onclick="SumarPersona() " class="jiji"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></li></ul></a></details></div>
+			<div.contenido><input type="file" id="file-input"/></div>
+			<div.contenido><input type="button" value="Exportar" onclick="changeExport()"></div>
+			<div.contenido><input type="button" value="Resumen" onclick="resume()"></div>
+
+		</div>
 		<nav id="puti">
 			<ul>
 			  <li><a href="#"><input type="button" value="Clean" onclick="clean()"></a></li>
@@ -145,5 +153,6 @@
 			<td colspan="10" id="por"></td>
 		</tr>
 </table>
+<p class="fondo">Pokem&oacute;n GO</p>
 </body>
 </html>
