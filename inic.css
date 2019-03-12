@@ -38,8 +38,22 @@ input {
 	font-style: italic;
 	font-size: 1.25rem;
 }
+
+#export{
+	background-color: #003996;
+	font-size: 1.25rem;
+}
+
 tr.jaja {
 	background-color: #a2bae5;
 	font-style: italic;
 	font-size: 1.25rem;
+}
+
+.subir{
+    padding: 5px 10px;
+    background: #606060;
+    color:#fff;
+    border:0px solid black;
+    border-radius: 1%;
 }

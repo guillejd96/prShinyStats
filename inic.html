@@ -8,9 +8,13 @@
 <body onload="load()">
 	<table border = "1">
 		<tr class="jaja">
-			<td colspan="8">Personas</td>
+			<td colspan="5">Personas</td>
 			<td><input type="button" value="+" onclick="SumarPersona()"></td>
 			<td><input type="button" value="-" onclick="RestarPersonas()"></td>
+			<td colspan="2">
+				<input type="file" id="file-input"/>
+			</td>
+			<td><input type="button" value="Clean" onclick="clean()"></td>
 		</tr>
 		<tr>
 			<td>Bulbasaur<br><input type="button" value="+" onclick="Sumar(0)"> <input type="button" value="-" onclick="Restar(0)"></td>
@@ -127,7 +131,8 @@
 			<td>Shinx<br><input type="button" value="+" onclick="Sumar(93)"> <input type="button" value="-" onclick="Restar(93)"></td>
 			<td>Drifloon <br><input type="button" value="+" onclick="Sumar(94)"> <input type="button" value="-" onclick="Restar(94)"></td>
 			<td> Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
-			<td id="td1" colspan="4"></td>
+			<td id="td1" colspan="2"></td>
+			<td id="export" colspan="2"><input type="button" value="Exportar" onclick="changeExport()"></td>
 		</tr>
 		<tr>
 			<td colspan="10" id="results"></td>
