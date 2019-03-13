@@ -7,29 +7,13 @@
 </head>
 <body onload="load()">
 	<table border = "1">
-		<div.contenedor>
-			<div.contenido><input type="button" value="Clean" onclick="clean()"></div>
-			<div.contenido><details><summary>Personas</summary><ul class="Personas"><li id="td1"></li><li><input type="button" value="+" onclick="SumarPersona() " class="jiji"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></li></ul></a></details></div>
-			<div.contenido><input type="file" id="file-input"/></div>
-			<div.contenido><input type="button" value="Exportar" onclick="changeExport()"></div>
-			<div.contenido><input type="button" value="Resumen" onclick="resume()"></div>
-
-		</div>
-		<nav id="puti">
-			<ul>
-			  <li><a href="#"><input type="button" value="Clean" onclick="clean()"></a></li>
-			  <li><a href="#">Personas</a>
-			    <ul>
-			      <li><a href="#"><li id="td1"></a></li> 
-			      <li><a href="#"> <input type="button" value="+" onclick="SumarPersona() " class="jiji"> </a></li>
-			      <li><a href="#"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></a></li>
-			    </ul>
-			  </li>
-			  <li><input type="file" id="file-input"/></li>
-			  <li><input type="button" value="Exportar" onclick="changeExport()"></li>
-			  <li><input type="button" value="Resumen" onclick="resume()"></li>
-			</ul>
-		</nav>
+		<tr>
+			<td colspan="10">
+				<div.contenedor>
+					<div.contenido><details><summary>Personas</summary><ul class="Personas"><li id="td1"></li><li><input type="button" value="+" onclick="SumarPersona() " class="jiji"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></li></ul></a></details></div>
+					<div.contenido><input type="file" id="file-input"/></div>
+			</td>
+		</tr>
 		<tr>
 			<td>Bulbasaur<br><input type="button" value="+" onclick="Sumar(0)"> <input type="button" value="-" onclick="Restar(0)"></td>
 			<td>Charmander<br><input type="button" value="+" onclick="Sumar(1)"> <input type="button" value="-" onclick="Restar(1)"></td>
@@ -79,72 +63,75 @@
 			<td>Eevee<br><input type="button" value="+" onclick="Sumar(39)"> <input type="button" value="-" onclick="Restar(39)"></td>
 		</tr>
 		<tr>
-			<td> Eevee (Flores)<br><input type="button" value="+" onclick="Sumar(40)"> <input type="button" value="-" onclick="Restar(40)"></td>
-			<td> Omanyte<br><input type="button" value="+" onclick="Sumar(41)"> <input type="button" value="-" onclick="Restar(41)"></td>
-			<td>Kabuto <br><input type="button" value="+" onclick="Sumar(42)"> <input type="button" value="-" onclick="Restar(42)"></td>
-			<td>Aerodactyl <br><input type="button" value="+" onclick="Sumar(43)"> <input type="button" value="-" onclick="Restar(43)"></td>
-			<td>Articuno <br><input type="button" value="+" onclick="Sumar(44)"> <input type="button" value="-" onclick="Restar(44)"></td>
-			<td> Zapdos<br><input type="button" value="+" onclick="Sumar(45)"> <input type="button" value="-" onclick="Restar(45)"></td>
-			<td> Moltres<br><input type="button" value="+" onclick="Sumar(46)"> <input type="button" value="-" onclick="Restar(46)"></td>
-			<td>Dratini <br><input type="button" value="+" onclick="Sumar(47)"> <input type="button" value="-" onclick="Restar(47)"></td>
-			<td> Chikorita<br><input type="button" value="+" onclick="Sumar(48)"> <input type="button" value="-" onclick="Restar(48)"></td>
-			<td> Cyndaquil<br><input type="button" value="+" onclick="Sumar(49)"> <input type="button" value="-" onclick="Restar(49)"></td>
+			<td>Eevee (Flores)<br><input type="button" value="+" onclick="Sumar(40)"> <input type="button" value="-" onclick="Restar(40)"></td>
+			<td>Omanyte<br><input type="button" value="+" onclick="Sumar(41)"> <input type="button" value="-" onclick="Restar(41)"></td>
+			<td>Kabuto<br><input type="button" value="+" onclick="Sumar(42)"> <input type="button" value="-" onclick="Restar(42)"></td>
+			<td>Aerodactyl<br><input type="button" value="+" onclick="Sumar(43)"> <input type="button" value="-" onclick="Restar(43)"></td>
+			<td>Articuno<br><input type="button" value="+" onclick="Sumar(44)"> <input type="button" value="-" onclick="Restar(44)"></td>
+			<td>Zapdos<br><input type="button" value="+" onclick="Sumar(45)"> <input type="button" value="-" onclick="Restar(45)"></td>
+			<td>Moltres<br><input type="button" value="+" onclick="Sumar(46)"> <input type="button" value="-" onclick="Restar(46)"></td>
+			<td>Dratini<br><input type="button" value="+" onclick="Sumar(47)"> <input type="button" value="-" onclick="Restar(47)"></td>
+			<td>Chikorita<br><input type="button" value="+" onclick="Sumar(48)"> <input type="button" value="-" onclick="Restar(48)"></td>
+			<td>Cyndaquil<br><input type="button" value="+" onclick="Sumar(49)"> <input type="button" value="-" onclick="Restar(49)"></td>
 		</tr>
 		<tr>
-			<td> Totodile<br><input type="button" value="+" onclick="Sumar(50)"> <input type="button" value="-" onclick="Restar(50)"></td>
-			<td> Togepi<br><input type="button" value="+" onclick="Sumar(51)"> <input type="button" value="-" onclick="Restar(51)"></td>
-			<td> Natu<br><input type="button" value="+" onclick="Sumar(52)"> <input type="button" value="-" onclick="Restar(52)"></td>
-			<td> Mareep<br><input type="button" value="+" onclick="Sumar(53)"> <input type="button" value="-" onclick="Restar(53)"></td>
-			<td> Azurill<br><input type="button" value="+" onclick="Sumar(54)"> <input type="button" value="-" onclick="Restar(54)"></td>
-			<td> Sunkern<br><input type="button" value="+" onclick="Sumar(55)"> <input type="button" value="-" onclick="Restar(55)"></td>
-			<td> Murkrow<br><input type="button" value="+" onclick="Sumar(56)"> <input type="button" value="-" onclick="Restar(56)"></td>
-			<td> Misdreavus<br><input type="button" value="+" onclick="Sumar(57)"> <input type="button" value="-" onclick="Restar(57)"></td>
-			<td> Wynaut<br><input type="button" value="+" onclick="Sumar(58)"> <input type="button" value="-" onclick="Restar(58)"></td>
-			<td> Pineco<br><input type="button" value="+" onclick="Sumar(59)"> <input type="button" value="-" onclick="Restar(59)"></td>
+			<td>Totodile<br><input type="button" value="+" onclick="Sumar(50)"> <input type="button" value="-" onclick="Restar(50)"></td>
+			<td>Togepi<br><input type="button" value="+" onclick="Sumar(51)"> <input type="button" value="-" onclick="Restar(51)"></td>
+			<td>Natu<br><input type="button" value="+" onclick="Sumar(52)"> <input type="button" value="-" onclick="Restar(52)"></td>
+			<td>Mareep<br><input type="button" value="+" onclick="Sumar(53)"> <input type="button" value="-" onclick="Restar(53)"></td>
+			<td>Azurill<br><input type="button" value="+" onclick="Sumar(54)"> <input type="button" value="-" onclick="Restar(54)"></td>
+			<td>Sunkern<br><input type="button" value="+" onclick="Sumar(55)"> <input type="button" value="-" onclick="Restar(55)"></td>
+			<td>Murkrow<br><input type="button" value="+" onclick="Sumar(56)"> <input type="button" value="-" onclick="Restar(56)"></td>
+			<td>Misdreavus<br><input type="button" value="+" onclick="Sumar(57)"> <input type="button" value="-" onclick="Restar(57)"></td>
+			<td>Wynaut<br><input type="button" value="+" onclick="Sumar(58)"> <input type="button" value="-" onclick="Restar(58)"></td>
+			<td>Pineco<br><input type="button" value="+" onclick="Sumar(59)"> <input type="button" value="-" onclick="Restar(59)"></td>
 		</tr>
 		<tr>
-			<td> Snubbull<br><input type="button" value="+" onclick="Sumar(60)"> <input type="button" value="-" onclick="Restar(60)"></td>
-			<td> Swinub<br><input type="button" value="+" onclick="Sumar(61)"> <input type="button" value="-" onclick="Restar(61)"></td>
-			<td> Delibird<br><input type="button" value="+" onclick="Sumar(62)"> <input type="button" value="-" onclick="Restar(62)"></td>
-			<td> Houndour<br><input type="button" value="+" onclick="Sumar(63)"> <input type="button" value="-" onclick="Restar(63)"></td>
-			<td> Larvitar<br><input type="button" value="+" onclick="Sumar(64)"> <input type="button" value="-" onclick="Restar(64)"></td>
-			<td> Lugia<br><input type="button" value="+" onclick="Sumar(65)"> <input type="button" value="-" onclick="Restar(65)"></td>
-			<td> Ho-Oh<br><input type="button" value="+" onclick="Sumar(66)"> <input type="button" value="-" onclick="Restar(66)"></td>
-			<td> Poochyena<br><input type="button" value="+" onclick="Sumar(67)"> <input type="button" value="-" onclick="Restar(67)"></td>
-			<td> Zigzagoon<br><input type="button" value="+" onclick="Sumar(68)"> <input type="button" value="-" onclick="Restar(68)"></td>
-			<td> Taillow<br><input type="button" value="+" onclick="Sumar(69)"> <input type="button" value="-" onclick="Restar(69)"></td>
+			<td>Snubbull<br><input type="button" value="+" onclick="Sumar(60)"> <input type="button" value="-" onclick="Restar(60)"></td>
+			<td>Swinub<br><input type="button" value="+" onclick="Sumar(61)"> <input type="button" value="-" onclick="Restar(61)"></td>
+			<td>Delibird<br><input type="button" value="+" onclick="Sumar(62)"> <input type="button" value="-" onclick="Restar(62)"></td>
+			<td>Houndour<br><input type="button" value="+" onclick="Sumar(63)"> <input type="button" value="-" onclick="Restar(63)"></td>
+			<td>Larvitar<br><input type="button" value="+" onclick="Sumar(64)"> <input type="button" value="-" onclick="Restar(64)"></td>
+			<td>Lugia<br><input type="button" value="+" onclick="Sumar(65)"> <input type="button" value="-" onclick="Restar(65)"></td>
+			<td>Ho-Oh<br><input type="button" value="+" onclick="Sumar(66)"> <input type="button" value="-" onclick="Restar(66)"></td>
+			<td>Poochyena<br><input type="button" value="+" onclick="Sumar(67)"> <input type="button" value="-" onclick="Restar(67)"></td>
+			<td>Zigzagoon<br><input type="button" value="+" onclick="Sumar(68)"> <input type="button" value="-" onclick="Restar(68)"></td>
+			<td>Taillow<br><input type="button" value="+" onclick="Sumar(69)"> <input type="button" value="-" onclick="Restar(69)"></td>
 		</tr>
 		<tr>
-			<td> Wingull<br><input type="button" value="+" onclick="Sumar(70)"> <input type="button" value="-" onclick="Restar(70)"></td>
-			<td> Makuhita<br><input type="button" value="+" onclick="Sumar(71)"> <input type="button" value="-" onclick="Restar(71)"></td>
-			<td> Sableye<br><input type="button" value="+" onclick="Sumar(72)"> <input type="button" value="-" onclick="Restar(72)"></td>
+			<td>Wingull<br><input type="button" value="+" onclick="Sumar(70)"> <input type="button" value="-" onclick="Restar(70)"></td>
+			<td>Makuhita<br><input type="button" value="+" onclick="Sumar(71)"> <input type="button" value="-" onclick="Restar(71)"></td>
+			<td>Sableye<br><input type="button" value="+" onclick="Sumar(72)"> <input type="button" value="-" onclick="Restar(72)"></td>
 			<td> Aron<br><input type="button" value="+" onclick="Sumar(73)"> <input type="button" value="-" onclick="Restar(73)"></td>
-			<td> Meditite<br><input type="button" value="+" onclick="Sumar(74)"> <input type="button" value="-" onclick="Restar(74)"></td>
+			<td>Meditite<br><input type="button" value="+" onclick="Sumar(74)"> <input type="button" value="-" onclick="Restar(74)"></td>
 			<td>Plusle <br><input type="button" value="+" onclick="Sumar(75)"> <input type="button" value="-" onclick="Restar(75)"></td>
-			<td> Minum<br><input type="button" value="+" onclick="Sumar(76)"> <input type="button" value="-" onclick="Restar(76)"></td>
-			<td> Budew<br><input type="button" value="+" onclick="Sumar(77)"> <input type="button" value="-" onclick="Restar(77)"></td>
-			<td> Roselia<br><input type="button" value="+" onclick="Sumar(78)"> <input type="button" value="-" onclick="Restar(78)"></td>
-			<td> Wailmer<br><input type="button" value="+" onclick="Sumar(79)"> <input type="button" value="-" onclick="Restar(79)"></td>
+			<td>Minum<br><input type="button" value="+" onclick="Sumar(76)"> <input type="button" value="-" onclick="Restar(76)"></td>
+			<td>Budew<br><input type="button" value="+" onclick="Sumar(77)"> <input type="button" value="-" onclick="Restar(77)"></td>
+			<td>Roselia<br><input type="button" value="+" onclick="Sumar(78)"> <input type="button" value="-" onclick="Restar(78)"></td>
+			<td>Wailmer<br><input type="button" value="+" onclick="Sumar(79)"> <input type="button" value="-" onclick="Restar(79)"></td>
 		</tr>
 		<tr>
-			<td>Spoink <br><input type="button" value="+" onclick="Sumar(80)"> <input type="button" value="-" onclick="Restar(80)"></td>
-			<td> Swablu<br><input type="button" value="+" onclick="Sumar(81)"> <input type="button" value="-" onclick="Restar(81)"></td>
-			<td> Feebas<br><input type="button" value="+" onclick="Sumar(82)"> <input type="button" value="-" onclick="Restar(82)"></td>
-			<td> Shuppet<br><input type="button" value="+" onclick="Sumar(83)"> <input type="button" value="-" onclick="Restar(83)"></td>
-			<td> Duskull<br><input type="button" value="+" onclick="Sumar(84)"> <input type="button" value="-" onclick="Restar(84)"></td>
-			<td> Absol<br><input type="button" value="+" onclick="Sumar(85)"> <input type="button" value="-" onclick="Restar(85)"></td>
-			<td> Snorunt<br><input type="button" value="+" onclick="Sumar(86)"> <input type="button" value="-" onclick="Restar(86)"></td>
-			<td> Clamperl<br><input type="button" value="+" onclick="Sumar(87)"> <input type="button" value="-" onclick="Restar(87)"></td>
-			<td>Luvdisc <br><input type="button" value="+" onclick="Sumar(88)"> <input type="button" value="-" onclick="Restar(88)"></td>
-			<td>Beldum <br><input type="button" value="+" onclick="Sumar(89)"> <input type="button" value="-" onclick="Restar(89)"></td>
+			<td>Spoink<br><input type="button" value="+" onclick="Sumar(80)"> <input type="button" value="-" onclick="Restar(80)"></td>
+			<td>Swablu<br><input type="button" value="+" onclick="Sumar(81)"> <input type="button" value="-" onclick="Restar(81)"></td>
+			<td>Feebas<br><input type="button" value="+" onclick="Sumar(82)"> <input type="button" value="-" onclick="Restar(82)"></td>
+			<td>Shuppet<br><input type="button" value="+" onclick="Sumar(83)"> <input type="button" value="-" onclick="Restar(83)"></td>
+			<td>Duskull<br><input type="button" value="+" onclick="Sumar(84)"> <input type="button" value="-" onclick="Restar(84)"></td>
+			<td>Absol<br><input type="button" value="+" onclick="Sumar(85)"> <input type="button" value="-" onclick="Restar(85)"></td>
+			<td>Snorunt<br><input type="button" value="+" onclick="Sumar(86)"> <input type="button" value="-" onclick="Restar(86)"></td>
+			<td>Clamperl<br><input type="button" value="+" onclick="Sumar(87)"> <input type="button" value="-" onclick="Restar(87)"></td>
+			<td>Luvdisc<br><input type="button" value="+" onclick="Sumar(88)"> <input type="button" value="-" onclick="Restar(88)"></td>
+			<td>Beldum<br><input type="button" value="+" onclick="Sumar(89)"> <input type="button" value="-" onclick="Restar(89)"></td>
 		</tr>
 		<tr>
-			<td> Latias<br><input type="button" value="+" onclick="Sumar(90)"> <input type="button" value="-" onclick="Restar(90)"></td>
-			<td>Kyogre <br><input type="button" value="+" onclick="Sumar(91)"> <input type="button" value="-" onclick="Restar(91)"></td>
-			<td> Groudon<br><input type="button" value="+" onclick="Sumar(92)"> <input type="button" value="-" onclick="Restar(92)"></td>
+			<td>Latias<br><input type="button" value="+" onclick="Sumar(90)"> <input type="button" value="-" onclick="Restar(90)"></td>
+			<td>Kyogre<br><input type="button" value="+" onclick="Sumar(91)"> <input type="button" value="-" onclick="Restar(91)"></td>
+			<td>Groudon<br><input type="button" value="+" onclick="Sumar(92)"> <input type="button" value="-" onclick="Restar(92)"></td>
 			<td>Shinx<br><input type="button" value="+" onclick="Sumar(93)"> <input type="button" value="-" onclick="Restar(93)"></td>
-			<td>Drifloon <br><input type="button" value="+" onclick="Sumar(94)"> <input type="button" value="-" onclick="Restar(94)"></td>
-			<td colspan="5"> Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
+			<td>Drifloon<br><input type="button" value="+" onclick="Sumar(94)"> <input type="button" value="-" onclick="Restar(94)"></td>
+			<td>Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
+			<td><input type="button" value="Clean" onclick="clean()"></td>
+			<td  colspan="2" id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
+			<td><input type="button" value="Resumen" onclick="resume()"></td>
 		</tr>
 		<tr>
 			<td colspan="10" id="results"></td>
