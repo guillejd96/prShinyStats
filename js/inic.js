@@ -20,12 +20,18 @@
   		lector.onload = function(e) {
     		var contenido = e.target.result;
     		var array = contenido.split("\r\n");
-    		nPersonas=array[0];
-    		pokemons= JSON.parse("["+array[1]+"]");
-    		por=JSON.parse("["+array[2]+"]");
+    		var newData = JSON.parse("["+array[0]+"]");
+    		addNewData(newData);
     		load();
  		 };
   		lector.readAsText(archivo);
+	}
+
+	function addNewData(newData){
+		for(var i=0;i<96;i++){
+			pokemons[i]+=newData[i];
+		}
+		nPersonas++;
 	}
 
 	function clean(){
