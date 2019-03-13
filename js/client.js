@@ -13,12 +13,18 @@
 		}
 		refresh();
 	}
-
+	
 	function refresh(){
 		var cant = document.getElementsByClassName("pokemon");
 		for(var i=0;i<cant.length;i++){
 			cant[i].innerText=pokemons[i];
 		}
+	}
+
+	
+	function enviarMail(){
+		alert("Acuerdate de adjuntar el documento que acabas de generar!");
+		window.open('mailto:prshinystats@gmail.com');
 	}
 
 	function load(){
