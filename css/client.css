@@ -20,11 +20,12 @@ td {
 	width: 10%;
 	height: 10%;
 }
-input.jiji {
+input {
 	background-color: #a2bae5;
 	width: 1.75rem;
 	height: 1.75rem;
     margin: 0% 1%;
+    display: inline-block;
 }
 #td1 {
 	font-style: italic;
