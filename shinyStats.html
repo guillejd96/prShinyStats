@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>shinyStats</title>
+	<style type="text/css">
+		body {
+	background-color: #42a1f4;
+	text-align: center;
+	margin: 0 auto;
+	font-family: Comic Sans;
+}
+table {
+	margin: 3% 1%;
+	border-width: 1px;
+	border-style: solid;
+	width: 98%;
+    position: absolute;
+    z-index: 2;
+}
+
+td {
+	align-content: center;
+	padding: 1%;
+	overflow: visible;
+	width: 10%;
+	height: 10%;
+}
+input.jiji {
+	background-color: #a2bae5;
+	width: 1.75rem;
+	height: 1.75rem;
+    margin: 0% 1%;
+}
+#td1 {
+	font-style: italic;
+	font-size: 1.25rem;
+}
+#por {
+	font-style: italic;
+	font-size: 1.25rem;
+}
+#results {
+	font-style: italic;
+	font-size: 1.25rem;
+}
+
+#export{
+	font-size: 1.25rem;
+}
+
+.subir{
+    padding: 5px 10px;
+    background: #ff1616;
+    color:#fff;
+    border:0px solid black;
+    border-radius: 1%;
+}
+.contenedor {
+    display: flex;
+    width: 16%;
+    position: fixed;
+    top: 4%;
+    height: 3%;
+    background-color: blue;
+    padding: 0.75rem;
+}
+.contenido {
+    width: 14%;
+}
+.Personas { 
+    list-style: none; }
+.fondo {
+    font-size: 16rem;
+    text-align: center;
+    margin: 15% 25%;
+    position: fixed;
+    top: 0%;
+    opacity: 0.25;
+    font-weight: bolder;
+    font-family: fantasy;
+    z-index: 1;
+}
+	</style>
+	<script type="text/javascript">
+			var nPersonas=1;
+	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	var oneTime= false;
+	var nombres= ["Bulbasur","Charmander","Squirtle","Squirtle (con gafas)","Caterpie","Rattata","Pichu","Pikachu","Raichu (Alola)","Pichu (gorro clebracion)","Pikachu (gorro celebracion)","Pikachu (gorra)","Pikachu (sombrero Halloween)",
+	"Pichu (sombrero Halloween)","Pichu (gorro Navidad)","Pikachu (gorro Navidad)","Pikachu (flores)","Raichu (flores)","Sandshrew","Nidoran","Cleffa","Psyduck","Mankey","Growlithe","Machop","Geodude","Ponyta","Magnemite","Grimer","Shellder",
+	"Gastly","Drowzee","Krabby","Cubone","Marowak (Alola)","Elekid","Magby","Pinsir","Magikarp","Eevee","Eevee (flores)","Omanyte","Kabuto","Aerodactyl","Articuno","Zapdos","Moltres","Dratini","Chikorita","Cyndaquil","Totodile","Togepi","Natu",
+	"Mareep","Azurril","Sunkern","Murkrow","Misdreavus","Wynaut","Pineco","Snubbul","Swinub","Delibird","Houndour","Larvitar","Lugia","Ho-oh","Poochyena","Zigzagoon","Taillow","Wingull","Makuhita","Sableye","Aron","Meditite","Plusle","Minum",
+	"Budew","Roselia","Wailmer","Spoink","Swablu","Feebas","Shuppet","Duskull","Absol","Snorunt","Clamperl","Luvdisc","Beldum","Latias","Kyogre","Groudon","Shinx","Drifloon","Meltan"];
+	
+	function clean(){
+		for(var i=0;i<pokemons.length;i++){
+			pokemons[i]=0;
+		}
+		refresh();
+	}
+	
+	function refresh(){
+		var cant = document.getElementsByClassName("pokemon");
+		for(var i=0;i<cant.length;i++){
+			cant[i].innerText=pokemons[i];
+		}
+	}
+	function enviarEmail(){
+		alert("Porfavor, adjunta en el email el archivo que has exportado");
+		var emailTo="prshinystats@gmail.com";
+		var emailSub="My file";
+
+		window.open("mailto:"+emailTo+'?subject='+emailSub);
+	}
+	function load(){
+		alert("1: Introduce tus Pokemons shiny\r\n2: Pulsa el boton de Exportar\r\n3: Pulsa el boton de Enviar");
+		if(!oneTime){
+			oneTime=true;
+			var table = document.getElementById("data");
+			var rows = table.rows;
+			var cont=0;
+			for(var i = 0; i < rows.length; i++) {
+				var row = rows[i].cells;
+				for(var j=0;j<row.length;j++){
+					if(row[j].id=="pokemon"){
+						var cant = document.createElement("p");
+						cant.className="pokemon";
+						cant.innerText=pokemons[cont];
+						cont++;
+						row[j].appendChild(cant);
+					}
+				}
+			}
+		}
+		refresh();
+	}
+	function Sumar(n){
+		pokemons[n]++;
+		load();
+	}
+
+	function Restar(n){
+		if(pokemons[n]>0) pokemons[n]--;
+		else pokemons[n]=0;
+		load();
+	}
+
+	function changeExport(){
+		var td = document.getElementById("export");
+		var exportButton = td.firstChild;
+
+		var input = document.createElement("INPUT");
+		input.type = "text";
+
+		var saveButton = document.createElement("INPUT");
+		saveButton.type="button";
+		saveButton.id="saveButton";
+		saveButton.value = "Guardar";
+
+		saveButton.onclick = function(){
+			var filename = input.value+".txt";
+			var data =pokemons.toString();
+			download(data,filename,'text/plain');
+			td.removeChild(saveButton);
+			td.replaceChild(exportButton,input);
+		};
+
+		td.replaceChild(input,exportButton);
+		td.appendChild(saveButton);
+	}
+
+	// Function to download data to a file
+	function download(data, filename, type) {
+	    var file = new Blob([data], {type: type});
+	    if (window.navigator.msSaveOrOpenBlob) // IE10+
+	        window.navigator.msSaveOrOpenBlob(file, filename);
+	    else { // Others
+	        var a = document.createElement("a"),
+	                url = URL.createObjectURL(file);
+	        a.href = url;
+	        a.download = filename;
+	        document.body.appendChild(a);
+	        a.click();
+	        setTimeout(function() {
+	            document.body.removeChild(a);
+	            window.URL.revokeObjectURL(url);  
+	        }, 0); 
+	    }
+	}
+	</script>
+</head>
+<body onload="load()">
+	<table border = "1" id="data">
+		<tr>
+			<td id="pokemon">Bulbasaur <input type="button" value="+" onclick="Sumar(0)"> <input type="button" value="-" onclick="Restar(0)"><br><br></td>
+			<td id="pokemon">Charmander <input type="button" value="+" onclick="Sumar(1)"> <input type="button" value="-" onclick="Restar(1)"></td>
+			<td id="pokemon">Squirtle <input type="button" value="+" onclick="Sumar(2)"> <input type="button" value="-" onclick="Restar(2)"></td>
+			<td id="pokemon">Squirtle (con gafas) <input type="button" value="+" onclick="Sumar(3)"> <input type="button" value="-" onclick="Restar(3)"></td>
+			<td id="pokemon">Caterpie <input type="button" value="+" onclick="Sumar(4)"> <input type="button" value="-" onclick="Restar(4)"></td>
+			<td id="pokemon">Rattata <input type="button" value="+" onclick="Sumar(5)"> <input type="button" value="-" onclick="Restar(5)"></td>
+			<td id="pokemon">Pichu <input type="button" value="+" onclick="Sumar(6)"> <input type="button" value="-" onclick="Restar(6)"></td>
+			<td id="pokemon">Pikachu <input type="button" value="+" onclick="Sumar(7)"> <input type="button" value="-" onclick="Restar(7)"></td>
+			<td id="pokemon">Raichu (Alola)<br><input type="button" value="+" onclick="Sumar(8)"> <input type="button" value="-" onclick="Restar(8)"></td>
+			<td id="pokemon">Pichu (Gorro celebraci&oacute;n)<br><input type="button" value="+" onclick="Sumar(9)"> <input type="button" value="-" onclick="Restar(9)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Pikachu (Gorro celebraci&oacute;n)<br><input type="button" value="+" onclick="Sumar(10)"> <input type="button" value="-" onclick="Restar(10)"></td>
+			<td id="pokemon">Pikachu (Gorra)<br><input type="button" value="+" onclick="Sumar(11)"> <input type="button" value="-" onclick="Restar(11)"></td>
+			<td id="pokemon">Pikachu (Sombrero Halloween)<br><input type="button" value="+" onclick="Sumar(12)"> <input type="button" value="-" onclick="Restar(12)"></td>
+			<td id="pokemon">Pichu (Sombrero Halloween)<br><input type="button" value="+" onclick="Sumar(13)"> <input type="button" value="-" onclick="Restar(13)"></td>
+			<td id="pokemon">Pichu (Gorro Navidad)<br><input type="button" value="+" onclick="Sumar(14)"> <input type="button" value="-" onclick="Restar(14)"></td>
+			<td id="pokemon">Pikachu (Gorro Navidad)<br><input type="button" value="+" onclick="Sumar(15)"> <input type="button" value="-" onclick="Restar(15)"></td>
+			<td id="pokemon">Pikachu (Flores)<br><input type="button" value="+" onclick="Sumar(16)"> <input type="button" value="-" onclick="Restar(16)"></td>
+			<td id="pokemon">Raichu (Flores)<br><input type="button" value="+" onclick="Sumar(17)"> <input type="button" value="-" onclick="Restar(17)"></td>
+			<td id="pokemon">Sandshrew <input type="button" value="+" onclick="Sumar(18)"> <input type="button" value="-" onclick="Restar(18)"></td>
+			<td id="pokemon">Nidoran hembra<br><input type="button" value="+" onclick="Sumar(19)"> <input type="button" value="-" onclick="Restar(19)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Cleffa <input type="button" value="+" onclick="Sumar(20)"> <input type="button" value="-" onclick="Restar(20)"></td>
+			<td id="pokemon">Psyduck <input type="button" value="+" onclick="Sumar(21)"> <input type="button" value="-" onclick="Restar(21)"></td>
+			<td id="pokemon">Mankey <input type="button" value="+" onclick="Sumar(22)"> <input type="button" value="-" onclick="Restar(22)"></td>
+			<td id="pokemon">Growlithe <input type="button" value="+" onclick="Sumar(23)"> <input type="button" value="-" onclick="Restar(23)"></td>
+			<td id="pokemon">Machop <input type="button" value="+" onclick="Sumar(24)"> <input type="button" value="-" onclick="Restar(24)"></td>
+			<td id="pokemon">Geodude <input type="button" value="+" onclick="Sumar(25)"> <input type="button" value="-" onclick="Restar(25)"></td>
+			<td id="pokemon">Ponyta <input type="button" value="+" onclick="Sumar(26)"> <input type="button" value="-" onclick="Restar(26)"></td>
+			<td id="pokemon">Magnemite <input type="button" value="+" onclick="Sumar(27)"> <input type="button" value="-" onclick="Restar(27)"></td>
+			<td id="pokemon">Grimer <input type="button" value="+" onclick="Sumar(28)"> <input type="button" value="-" onclick="Restar(28)"></td>
+			<td id="pokemon">Shellder <input type="button" value="+" onclick="Sumar(29)"> <input type="button" value="-" onclick="Restar(29)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Gastly <input type="button" value="+" onclick="Sumar(30)"> <input type="button" value="-" onclick="Restar(30)"></td>
+			<td id="pokemon">Drowzee <input type="button" value="+" onclick="Sumar(31)"> <input type="button" value="-" onclick="Restar(31)"></td>
+			<td id="pokemon">Krabby <input type="button" value="+" onclick="Sumar(32)"> <input type="button" value="-" onclick="Restar(32)"></td>
+			<td id="pokemon">Cubone <input type="button" value="+" onclick="Sumar(33)"> <input type="button" value="-" onclick="Restar(33)"></td>
+			<td id="pokemon">Marowak (Alola)<br><input type="button" value="+" onclick="Sumar(34)"> <input type="button" value="-" onclick="Restar(34)"></td>
+			<td id="pokemon">Elekid <input type="button" value="+" onclick="Sumar(35)"> <input type="button" value="-" onclick="Restar(35)"></td>
+			<td id="pokemon">Magby <input type="button" value="+" onclick="Sumar(36)"> <input type="button" value="-" onclick="Restar(36)"></td>
+			<td id="pokemon">Pinsir <input type="button" value="+" onclick="Sumar(37)"> <input type="button" value="-" onclick="Restar(37)"></td>
+			<td id="pokemon">Magikarp <input type="button" value="+" onclick="Sumar(38)"> <input type="button" value="-" onclick="Restar(38)"></td>
+			<td id="pokemon">Eevee <input type="button" value="+" onclick="Sumar(39)"> <input type="button" value="-" onclick="Restar(39)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Eevee (Flores)<br><input type="button" value="+" onclick="Sumar(40)"> <input type="button" value="-" onclick="Restar(40)"></td>
+			<td id="pokemon">Omanyte <input type="button" value="+" onclick="Sumar(41)"> <input type="button" value="-" onclick="Restar(41)"></td>
+			<td id="pokemon">Kabuto <input type="button" value="+" onclick="Sumar(42)"> <input type="button" value="-" onclick="Restar(42)"></td>
+			<td id="pokemon">Aerodacty <input type="button" value="+" onclick="Sumar(43)"> <input type="button" value="-" onclick="Restar(43)"></td>
+			<td id="pokemon">Articuno <input type="button" value="+" onclick="Sumar(44)"> <input type="button" value="-" onclick="Restar(44)"></td>
+			<td id="pokemon">Zapdos <input type="button" value="+" onclick="Sumar(45)"> <input type="button" value="-" onclick="Restar(45)"></td>
+			<td id="pokemon">Moltres <input type="button" value="+" onclick="Sumar(46)"> <input type="button" value="-" onclick="Restar(46)"></td>
+			<td id="pokemon">Dratini <input type="button" value="+" onclick="Sumar(47)"> <input type="button" value="-" onclick="Restar(47)"></td>
+			<td id="pokemon">Chikorita <input type="button" value="+" onclick="Sumar(48)"> <input type="button" value="-" onclick="Restar(48)"></td>
+			<td id="pokemon">Cyndaquil <input type="button" value="+" onclick="Sumar(49)"> <input type="button" value="-" onclick="Restar(49)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Totodile <input type="button" value="+" onclick="Sumar(50)"> <input type="button" value="-" onclick="Restar(50)"></td>
+			<td id="pokemon">Togepi <input type="button" value="+" onclick="Sumar(51)"> <input type="button" value="-" onclick="Restar(51)"></td>
+			<td id="pokemon">Natu <input type="button" value="+" onclick="Sumar(52)"> <input type="button" value="-" onclick="Restar(52)"></td>
+			<td id="pokemon">Mareep <input type="button" value="+" onclick="Sumar(53)"> <input type="button" value="-" onclick="Restar(53)"></td>
+			<td id="pokemon">Azurill <input type="button" value="+" onclick="Sumar(54)"> <input type="button" value="-" onclick="Restar(54)"></td>
+			<td id="pokemon">Sunkern <input type="button" value="+" onclick="Sumar(55)"> <input type="button" value="-" onclick="Restar(55)"></td>
+			<td id="pokemon">Murkrow <input type="button" value="+" onclick="Sumar(56)"> <input type="button" value="-" onclick="Restar(56)"></td>
+			<td id="pokemon">Misdreavus <input type="button" value="+" onclick="Sumar(57)"> <input type="button" value="-" onclick="Restar(57)"></td>
+			<td id="pokemon">Wynaut <input type="button" value="+" onclick="Sumar(58)"> <input type="button" value="-" onclick="Restar(58)"></td>
+			<td id="pokemon">Pineco <input type="button" value="+" onclick="Sumar(59)"> <input type="button" value="-" onclick="Restar(59)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Snubbull <input type="button" value="+" onclick="Sumar(60)"> <input type="button" value="-" onclick="Restar(60)"></td>
+			<td id="pokemon">Swinub <input type="button" value="+" onclick="Sumar(61)"> <input type="button" value="-" onclick="Restar(61)"></td>
+			<td id="pokemon">Delibird <input type="button" value="+" onclick="Sumar(62)"> <input type="button" value="-" onclick="Restar(62)"></td>
+			<td id="pokemon">Houndour <input type="button" value="+" onclick="Sumar(63)"> <input type="button" value="-" onclick="Restar(63)"></td>
+			<td id="pokemon">Larvitar <input type="button" value="+" onclick="Sumar(64)"> <input type="button" value="-" onclick="Restar(64)"></td>
+			<td id="pokemon">Lugia <input type="button" value="+" onclick="Sumar(65)"> <input type="button" value="-" onclick="Restar(65)"></td>
+			<td id="pokemon">Ho-Oh <input type="button" value="+" onclick="Sumar(66)"> <input type="button" value="-" onclick="Restar(66)"></td>
+			<td id="pokemon">Poochyena <input type="button" value="+" onclick="Sumar(67)"> <input type="button" value="-" onclick="Restar(67)"></td>
+			<td id="pokemon">Zigzagoon <input type="button" value="+" onclick="Sumar(68)"> <input type="button" value="-" onclick="Restar(68)"></td>
+			<td id="pokemon">Taillow <input type="button" value="+" onclick="Sumar(69)"> <input type="button" value="-" onclick="Restar(69)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Wingull <input type="button" value="+" onclick="Sumar(70)"> <input type="button" value="-" onclick="Restar(70)"></td>
+			<td id="pokemon">Makuhita <input type="button" value="+" onclick="Sumar(71)"> <input type="button" value="-" onclick="Restar(71)"></td>
+			<td id="pokemon">Sableye <input type="button" value="+" onclick="Sumar(72)"> <input type="button" value="-" onclick="Restar(72)"></td>
+			<td id="pokemon">Aron <input type="button" value="+" onclick="Sumar(73)"> <input type="button" value="-" onclick="Restar(73)"></td>
+			<td id="pokemon">Meditite <input type="button" value="+" onclick="Sumar(74)"> <input type="button" value="-" onclick="Restar(74)"></td>
+			<td id="pokemon">Plusle <input type="button" value="+" onclick="Sumar(75)"> <input type="button" value="-" onclick="Restar(75)"></td>
+			<td id="pokemon">Minum <input type="button" value="+" onclick="Sumar(76)"> <input type="button" value="-" onclick="Restar(76)"></td>
+			<td id="pokemon">Budew <input type="button" value="+" onclick="Sumar(77)"> <input type="button" value="-" onclick="Restar(77)"></td>
+			<td id="pokemon">Roselia <input type="button" value="+" onclick="Sumar(78)"> <input type="button" value="-" onclick="Restar(78)"></td>
+			<td id="pokemon">Wailmer <input type="button" value="+" onclick="Sumar(79)"> <input type="button" value="-" onclick="Restar(79)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Spoink <input type="button" value="+" onclick="Sumar(80)"> <input type="button" value="-" onclick="Restar(80)"></td>
+			<td id="pokemon">Swablu <input type="button" value="+" onclick="Sumar(81)"> <input type="button" value="-" onclick="Restar(81)"></td>
+			<td id="pokemon">Feebas <input type="button" value="+" onclick="Sumar(82)"> <input type="button" value="-" onclick="Restar(82)"></td>
+			<td id="pokemon">Shuppet <input type="button" value="+" onclick="Sumar(83)"> <input type="button" value="-" onclick="Restar(83)"></td>
+			<td id="pokemon">Duskull <input type="button" value="+" onclick="Sumar(84)"> <input type="button" value="-" onclick="Restar(84)"></td>
+			<td id="pokemon">Absol <input type="button" value="+" onclick="Sumar(85)"> <input type="button" value="-" onclick="Restar(85)"></td>
+			<td id="pokemon">Snorunt <input type="button" value="+" onclick="Sumar(86)"> <input type="button" value="-" onclick="Restar(86)"></td>
+			<td id="pokemon">Clamperl <input type="button" value="+" onclick="Sumar(87)"> <input type="button" value="-" onclick="Restar(87)"></td>
+			<td id="pokemon">Luvdisc <input type="button" value="+" onclick="Sumar(88)"> <input type="button" value="-" onclick="Restar(88)"></td>
+			<td id="pokemon">Beldum<input type="button" value="+" onclick="Sumar(89)"> <input type="button" value="-" onclick="Restar(89)"></td>
+		</tr>
+		<tr>
+			<td id="pokemon">Latias <input type="button" value="+" onclick="Sumar(90)"> <input type="button" value="-" onclick="Restar(90)"></td>
+			<td id="pokemon">Kyogre <input type="button" value="+" onclick="Sumar(91)"> <input type="button" value="-" onclick="Restar(91)"></td>
+			<td id="pokemon">Groudon <input type="button" value="+" onclick="Sumar(92)"> <input type="button" value="-" onclick="Restar(92)"></td>
+			<td id="pokemon">Shinx <input type="button" value="+" onclick="Sumar(93)"> <input type="button" value="-" onclick="Restar(93)"></td>
+			<td id="pokemon">Drifloon <input type="button" value="+" onclick="Sumar(94)"> <input type="button" value="-" onclick="Restar(94)"></td>
+			<td id="pokemon">Meltan <input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
+			<td><input type="button" value="Clean" onclick="clean()"></td>
+			<td  colspan="2" id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
+			<td><input type="button" value="Enviar" onclick="enviarEmail()"></td>
+		</tr>
+</table>
+<p class="fondo">Pokem&oacute;n GO</p>
+</body>
+</html>
