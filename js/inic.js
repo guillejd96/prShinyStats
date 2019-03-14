@@ -37,6 +37,7 @@
 	function clean(){
 		nPersonas=0;
 		load();
+		closeResume();
 	}
 
 	function load(){
@@ -47,11 +48,7 @@
 		}
 		setUp();
 		var td = document.getElementById("td1");
-		var tdResult = document.getElementById("results");
-		var tdPor = document.getElementById("por");
 		td.innerText = nPersonas;
-		tdResult.innerText=pokemons.toString();
-		tdPor.innerText=por.toString();
 	}
 
 	function SumarPersona(){
@@ -146,11 +143,11 @@
 	function calcularMayores(){
 		var max1=0,max2=0,max3=0,max4=0,max5=0
 		for(var i=0;i<96;i++){
-			if(por[i]>por[max5]){
-				if(por[i]>por[max4]){
-					if(por[i]>por[max3]){
-						if(por[i]>por[max2]){
-							if(por[i]>por[max1]){
+			if(pokemons[i]>pokemons[max5]){
+				if(pokemons[i]>pokemons[max4]){
+					if(pokemons[i]>pokemons[max3]){
+						if(pokemons[i]>pokemons[max2]){
+							if(pokemons[i]>pokemons[max1]){
 								max1=i;
 							} else {
 								max2=i;
@@ -172,42 +169,78 @@
 	function calcularMenores(){
 		var min1=1000000,min2=1000000,min3=1000000,min4=1000000,min5=1000000;
 		for(var i=0;i<96;i++){
-			if(por[i]>0){
-				if(por[i]<por[min5]){
-					if(por[i]<por[min4]){
-						if(por[i]<por[min3]){
-							if(por[i]<por[min2]){
-								if(por[i]<por[min1]){
-									max1=i;
+			if(pokemons[i]>0){
+				if(pokemons[i]<pokemons[min5]){
+					if(pokemons[i]<pokemons[min4]){
+						if(pokemons[i]<pokemons[min3]){
+							if(pokemons[i]<pokemons[min2]){
+								if(pokemons[i]<pokemons[min1]){
+									min1=i;
 								} else {
-									max2=i;
+									min2=i;
 								}
 							} else {
-								max3=i;
+								min3=i;
 							}
 						} else {
-							max4=i;
+							min4=i;
 						}
 					} else {
-						max5=i;
+						min5=i;
 					}
 				}
 			}
 		}
 		menorPorcentaje = [min1,min2,min3,min4,min5];
+		alert(menorPorcentaje.toString);
 	}
 
 	function showResume(){
-		var newTable = document.createElement("table");
-		newTable.border=1;
-		newTable.id="newTable";
+		var resumen = document.getElementById("resumen");
+		resumen.style.visibility="visible";
 		var column1 = document.createElement("td");
 		var column2 = document.createElement("td");
+		column1.colSpan=5;
+		column2.colSpan=5;
 
-		newTable.appendChild(column1);
-		newTable.appendChild(column2);
+		var table1 = document.createElement("table");
+		var table2 = document.createElement("table");
+		var list1 = new Array(6);
+		var list2 = new Array(6);
+		for(var i=0;i<6;i++){
+			var aux1 = document.createElement("tr");
+			var aux2 = document.createElement("tr");
+			list1[i]=aux1;
+			list2[i]=aux2;
+		}		
 
-		document.body.appendChild(newTable);
+		for(var i=0;i<6;i++){
+			if(i==0){
+				list1[0].innerText="Pokemons con mayor ocurrencia";
+				list2[0].innerText="Pokemons con menor ocurrencia";
+			}
+			else {
+				list1[i].innerText=i+": "+nombres[mayorPorcentaje[i-1]];
+				list2[i].innerText=i+": "+nombres[menorPorcentaje[i-1]];
+			}
+		}
+
+		for(var i=0;i<6;i++){
+			table1.appendChild(list1[i]);
+			table2.appendChild(list2[i]);
+		}
+
+		column1.appendChild(table1);
+		column2.appendChild(table2);
+
+		resumen.appendChild(column1);
+		resumen.appendChild(column2);
 	}
 
-	//function AddAttachmentAsync(fileName : String) : Attachment;
+	function closeResume(){
+		var resumen = document.getElementById("resumen");
+		for(var i=0;i<resumen.childNodes.length;i++){
+			resumen.removeChild(resumen.childNodes[i]);
+		}
+		resumen.style.visibility="hidden";
+	}

@@ -11,7 +11,7 @@
 			<td colspan="10">
 				<div.contenedor>
 					<div.contenido><details><summary>Personas</summary><ul class="Personas"><li id="td1"></li><li><input type="button" value="+" onclick="SumarPersona() " class="jiji"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></li></ul></a></details></div>
-					<div.contenido><input type="file" id="file-input"/></div>
+					<div.contenido><input type="file" id="file-input" multiple="" /></div>
 			</td>
 		</tr>
 		<tr>
@@ -131,16 +131,11 @@
 			<td>Meltan<br><input type="button" value="+" onclick="Sumar(95)"> <input type="button" value="-" onclick="Restar(95)"></td>
 			<td><input type="button" value="Clean" onclick="clean()"></td>
 			<td id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
-			<td><input type="button" value="Enviar" onclick="enviarMail()"></td>
-			<td><input type="button" value="Resumen" onclick="resume()"></td>
+			<td colspan="2"><input type="button" value="Resumen" onclick="resume()"></td>
 		</tr>
-		<tr>
-			<td colspan="10" id="results"></td>
-		</tr>
-		<tr>
-			<td colspan="10" id="por"></td>
-		</tr>
+		<tr rowspan="10" id="resumen" style="visibility: hidden"></tr>
 </table>
 <p class="fondo">Pokem&oacute;n GO</p>
+<br>
 </body>
 </html>
