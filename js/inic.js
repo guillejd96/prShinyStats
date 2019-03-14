@@ -1,5 +1,5 @@
 	var nPersonas=0;
-	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Number.MAX_SAFE_INTEGER];
+	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER];
 	var por = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var oneTime= false;
 	var nombres= ["Bulbasur","Charmander","Squirtle","Squirtle (con gafas)","Caterpie","Rattata","Pichu","Pikachu","Raichu (Alola)","Pichu (gorro clebracion)","Pikachu (gorro celebracion)","Pikachu (gorra)","Pikachu (sombrero Halloween)",
@@ -44,6 +44,8 @@
 		nPersonas=0;
 		load();
 		closeResume();
+
+		document.getElementById("file-input").value="";
 	}
 
 	function load(){
@@ -57,11 +59,6 @@
 		td.innerText = nPersonas;
 	}
 
-	function SumarPersona(){
-		nPersonas++;
-		load();
-	}
-
 	function setUp(){
 		for(var i=0;i<96;i++){
 			if(nPersonas==0){
@@ -72,11 +69,6 @@
 				por[i]=trunc((pokemons[i]/nPersonas)*100,2);;
 			}
 		}
-	}
-
-	function RestarPersonas(){
-		nPersonas--;
-		load();
 	}
 
 	function Sumar(n){
@@ -147,7 +139,7 @@
 	}
 
 	function calcularMayores(){
-		var max1=0,max2=0,max3=0,max4=0,max5=0
+		var max1=max2=max3=max4=max5=pokemons.length-1;
 		for(var i=0;i<96;i++){
 			if(pokemons[i]>pokemons[max5]){
 				if(pokemons[i]>pokemons[max4]){
@@ -173,7 +165,7 @@
 	}
 
 	function calcularMenores(){
-		var min1=min2=min3=min4=min5=pokemons.length-1;
+		var min1=min2=min3=min4=min5=pokemons.length-2;
 		for(var i=0;i<96;i++){
 			if(pokemons[i]>0){
 				if(pokemons[i]<pokemons[min5]){
