@@ -10,8 +10,21 @@
 		<tr>
 			<td colspan="10">
 				<div.contenedor>
-					<div.contenido><details><summary>Personas</summary><ul class="Personas"><li id="td1"></li><li><input type="button" value="+" onclick="SumarPersona() " class="jiji"><input type="button" value="-" onclick="RestarPersonas()" class="jiji"></li></ul></a></details></div>
-					<div.contenido><input type="file" id="file-input" multiple="" /></div>
+					<div.contenido>
+						<details>
+							<summary>Personas</summary>
+							<ul class="Personas">
+								<li id="td1"></li>
+								<li>
+									<input type="button" value="+" onclick="SumarPersona()"> <input type="button" value="-" onclick="RestarPersonas()">
+								</li>
+							</ul>
+						</details>
+					</div.contenido>
+					<div.contenido>
+						<input type="file" id="file-input" multiple>
+					</div.contenido>
+				</div.contenedor>	
 			</td>
 		</tr>
 		<tr>
@@ -133,7 +146,10 @@
 			<td id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
 			<td colspan="2"><input type="button" value="Resumen" onclick="resume()"></td>
 		</tr>
-		<tr rowspan="10" id="resumen" style="visibility: hidden"></tr>
+		<tr id="resumen" style="visibility: hidden">
+			<td colspan="5" id="mejores"></td>
+			<td colspan="5" id="peores"></td>
+		</tr>
 </table>
 <p class="fondo">Pokem&oacute;n GO</p>
 <br>

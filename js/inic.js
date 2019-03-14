@@ -1,5 +1,5 @@
 	var nPersonas=0;
-	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Number.MAX_SAFE_INTEGER];
 	var por = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var oneTime= false;
 	var nombres= ["Bulbasur","Charmander","Squirtle","Squirtle (con gafas)","Caterpie","Rattata","Pichu","Pikachu","Raichu (Alola)","Pichu (gorro clebracion)","Pikachu (gorro celebracion)","Pikachu (gorra)","Pikachu (sombrero Halloween)",
@@ -11,9 +11,15 @@
 	var mayorPorcentaje = [0,0,0,0,0];
 	var menorPorcentaje = [0,0,0,0,0];
 
-	function leerArchivo(e) {
-  		var archivo = e.target.files[0];
-  		if (!archivo) {
+	function leerArchivos(e){
+		var archivos = e.target.files;
+		for(var i=0;i<archivos.length;i++){
+			leerArchivo(archivos[i]);
+		}
+	}
+
+	function leerArchivo(file) {
+  		if (!file) {
     		return;
   		}
   		var lector = new FileReader();
@@ -24,7 +30,7 @@
     		addNewData(newData);
     		load();
  		 };
-  		lector.readAsText(archivo);
+  		lector.readAsText(file);
 	}
 
 	function addNewData(newData){
@@ -44,7 +50,7 @@
 		if(!oneTime){
 			oneTime=true;
 			var input = document.getElementById("file-input");
-			input.addEventListener('change', leerArchivo, false);
+			input.addEventListener('change', leerArchivos, false);
 		}
 		setUp();
 		var td = document.getElementById("td1");
@@ -167,7 +173,7 @@
 	}
 
 	function calcularMenores(){
-		var min1=1000000,min2=1000000,min3=1000000,min4=1000000,min5=1000000;
+		var min1=min2=min3=min4=min5=pokemons.length-1;
 		for(var i=0;i<96;i++){
 			if(pokemons[i]>0){
 				if(pokemons[i]<pokemons[min5]){
@@ -192,24 +198,17 @@
 			}
 		}
 		menorPorcentaje = [min1,min2,min3,min4,min5];
-		alert(menorPorcentaje.toString);
 	}
 
 	function showResume(){
-		var resumen = document.getElementById("resumen");
-		resumen.style.visibility="visible";
-		var column1 = document.createElement("td");
-		var column2 = document.createElement("td");
-		column1.colSpan=5;
-		column2.colSpan=5;
-
-		var table1 = document.createElement("table");
-		var table2 = document.createElement("table");
+		var tableResumen = document.getElementById("resumen");
+		var tdMejores = document.getElementById("mejores");
+		var tdPeores = document.getElementById("peores");
 		var list1 = new Array(6);
 		var list2 = new Array(6);
 		for(var i=0;i<6;i++){
-			var aux1 = document.createElement("tr");
-			var aux2 = document.createElement("tr");
+			var aux1 = document.createElement("p");
+			var aux2 = document.createElement("p");
 			list1[i]=aux1;
 			list2[i]=aux2;
 		}		
@@ -220,27 +219,26 @@
 				list2[0].innerText="Pokemons con menor ocurrencia";
 			}
 			else {
-				list1[i].innerText=i+": "+nombres[mayorPorcentaje[i-1]];
-				list2[i].innerText=i+": "+nombres[menorPorcentaje[i-1]];
+				list1[i].innerText=i+": "+nombres[mayorPorcentaje[i-1]]+" ("+pokemons[mayorPorcentaje[i-1]]+")";
+				list2[i].innerText=i+": "+nombres[menorPorcentaje[i-1]]+" ("+pokemons[menorPorcentaje[i-1]]+")";
 			}
 		}
 
 		for(var i=0;i<6;i++){
-			table1.appendChild(list1[i]);
-			table2.appendChild(list2[i]);
+			tdMejores.appendChild(list1[i]);
+			tdPeores.appendChild(list2[i]);
 		}
 
-		column1.appendChild(table1);
-		column2.appendChild(table2);
-
-		resumen.appendChild(column1);
-		resumen.appendChild(column2);
+		tableResumen.style.visibility="visible";
 	}
 
 	function closeResume(){
-		var resumen = document.getElementById("resumen");
-		for(var i=0;i<resumen.childNodes.length;i++){
-			resumen.removeChild(resumen.childNodes[i]);
-		}
+		var tdMejores = document.getElementById("mejores");
+		var tdPeores = document.getElementById("peores");
+		while (tdMejores.hasChildNodes() || tdPeores.hasChildNodes()) {   
+  			if(tdMejores.hasChildNodes()) tdMejores.removeChild(tdMejores.firstChild);
+  			if(tdPeores.hasChildNodes()) tdPeores.removeChild(tdPeores.firstChild);
+		} 
+		var tableResumen = document.getElementById("resumen");
 		resumen.style.visibility="hidden";
 	}
