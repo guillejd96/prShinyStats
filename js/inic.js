@@ -66,7 +66,13 @@
 				pokemons[i]=0;
 			}
 			else {
-				por[i]=trunc((pokemons[i]/nPersonas)*100,2);;
+				var value = trunc((pokemons[i]/nPersonas)*100,2);
+				if(value>100){
+					por[i]=100;
+				} 
+				else {
+					por[i]=value;	
+				}
 			}
 		}
 	}
