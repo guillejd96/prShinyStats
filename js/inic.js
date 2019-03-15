@@ -217,8 +217,8 @@
 				list2[0].innerText="Pokemons con menor ocurrencia";
 			}
 			else {
-				list1[i].innerText=i+": "+nombres[mayorPorcentaje[i-1]]+" ("+pokemons[mayorPorcentaje[i-1]]+")";
-				list2[i].innerText=i+": "+nombres[menorPorcentaje[i-1]]+" ("+pokemons[menorPorcentaje[i-1]]+")";
+				list1[i].innerText=i+": "+nombres[mayorPorcentaje[i-1]]+" ("+pokemons[mayorPorcentaje[i-1]]+") ("+por[mayorPorcentaje[i-1]]+"%)";
+				list2[i].innerText=i+": "+nombres[menorPorcentaje[i-1]]+" ("+pokemons[menorPorcentaje[i-1]]+") ("+por[menorPorcentaje[i-1]]+"%)";
 			}
 		}
 
