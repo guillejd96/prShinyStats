@@ -8,6 +8,8 @@
 	"Mareep","Azurril","Sunkern","Murkrow","Misdreavus","Wynaut","Pineco","Snubbul","Swinub","Delibird","Houndour","Larvitar","Lugia","Ho-oh","Poochyena","Zigzagoon","Taillow","Wingull","Makuhita","Sableye","Aron","Meditite","Plusle","Minum",
 	"Budew","Roselia","Wailmer","Spoink","Swablu","Feebas","Shuppet","Duskull","Absol","Snorunt","Clamperl","Luvdisc","Beldum","Latias","Kyogre","Groudon","Shinx","Drifloon","Meltan"];
 	
+	var p = createArray(100,96);
+
 	var mayorPorcentaje = [0,0,0,0,0];
 	var menorPorcentaje = [0,0,0,0,0];
 
@@ -16,6 +18,17 @@
 		for(var i=0;i<archivos.length;i++){
 			leerArchivo(archivos[i]);
 		}
+	}
+
+	function createArray(length) {
+	    var arr = new Array(length || 0),
+    	    i = length;
+
+    	if (arguments.length > 1) {
+        	var args = Array.prototype.slice.call(arguments, 1);
+        	while(i--) arr[length-1 - i] = createArray.apply(this, args);
+    	}
+    	return arr;
 	}
 
 	function leerArchivo(file) {
@@ -36,6 +49,7 @@
 	function addNewData(newData){
 		for(var i=0;i<96;i++){
 			pokemons[i]+=newData[i];
+			p[nPersonas][i]=newData[i];
 		}
 		nPersonas++;
 	}
