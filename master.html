@@ -6,6 +6,12 @@
 	<script type="text/javascript" src="js/master.js"></script>
 </head>
 <body onload="load()">
+	<div id="padre">
+		<div id="hijo"><input type="button" value="Clean" onclick="clean()"></div>
+		<div id="export"><input type="button" value="Exportar" onclick="changeExport()"></div>
+		<div id="hijo"><input type="button" value="Resumen" onclick="resume()"></div>
+	</div>
+
 	<table border = "1">
 		<tr>
 			<td colspan="10">
@@ -20,135 +26,129 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Bulbasaur<br></td>
-			<td>Charmander<br></td>
-			<td>Squirtle<br></td>
-			<td>Squirtle (con gafas)<br></td>
-			<td>Caterpie<br></td>
-			<td>Rattata<br></td>
-			<td>Pichu<br></td>
-			<td>Pikachu<br></td>
-			<td>Raichu (Alola)<br></td>
-			<td>Pichu (Gorro celebraci&oacute;n)<br></td>
+			<td>Bulbasaur<br><p class="pokemon"></p></td>
+			<td>Charmander<br><p class="pokemon"></p></td>
+			<td>Squirtle<br><p class="pokemon"></p></td>
+			<td>Squirtle (con gafas)<br><p class="pokemon"></p></td>
+			<td>Caterpie<br><p class="pokemon"></p></td>
+			<td>Rattata<br><p class="pokemon"></p></td>
+			<td>Pichu<br><p class="pokemon"></p></td>
+			<td>Pikachu<br><p class="pokemon"></p></td>
+			<td>Raichu (Alola)<br><p class="pokemon"></p></td>
+			<td>Pichu (Gorro celebraci&oacute;n)<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Pikachu (Gorro celebraci&oacute;n)<br></td>
-			<td>Pikachu (Gorra)<br></td>
-			<td>Pikachu (Sombrero Halloween)<br></td>
-			<td>Pichu (Sombrero Halloween)<br></td>
-			<td>Pichu (Gorro Navidad)<br></td>
-			<td>Pikachu (Gorro Navidad)<br></td>
-			<td>Pikachu (Flores)<br></td>
-			<td>Raichu (Flores)<br></td>
-			<td>Sandshrew<br></td>
-			<td>Nidoran hembra<br></td>
+			<td>Pikachu (Gorro celebraci&oacute;n)<br><p class="pokemon"></p></td>
+			<td>Pikachu (Gorra)<br><p class="pokemon"></p></td>
+			<td>Pikachu (Sombrero Halloween)<br<p class="pokemon"></p>></td>
+			<td>Pichu (Sombrero Halloween)<br><p class="pokemon"></p></td>
+			<td>Pichu (Gorro Navidad)<br><p class="pokemon"></p></td>
+			<td>Pikachu (Gorro Navidad)<br><p class="pokemon"></p></td>
+			<td>Pikachu (Flores)<br><p class="pokemon"></p></td>
+			<td>Raichu (Flores)<br><p class="pokemon"></p></td>
+			<td>Sandshrew<br><p class="pokemon"></p></td>
+			<td>Nidoran hembra<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Cleffa<br></td>
-			<td>Psyduck<br></td>
-			<td>Mankey<br></td>
-			<td>Growlithe<br></td>
-			<td>Machop<br></td>
-			<td>Geodude<br></td>
-			<td>Ponyta<br></td>
-			<td>Magnemite<br></td>+
-			<td>Grimer<br></td>
-			<td>Shellder<br></td>
+			<td>Cleffa<br><p class="pokemon"></p></td>
+			<td>Oddish<br><p class="pokemon"></p></td>
+			<td>Psyduck<br><p class="pokemon"></p></td>
+			<td>Mankey<br><p class="pokemon"></p></td>
+			<td>Growlithe<br><p class="pokemon"></p></td>
+			<td>Machop<br><p class="pokemon"></p></td>
+			<td>Geodude<br><p class="pokemon"></p></td>
+			<td>Ponyta<br><p class="pokemon"></p></td>
+			<td>Magnemite<br><p class="pokemon"></p></td>
+			<td>Grimer<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Gastly<br></td>
-			<td>Drowzee<br></td>
-			<td>Krabby<br></td>
-			<td>Cubone<br></td>
-			<td>Marowak (Alola)<br></td>
-			<td>Elekid<br></td>
-			<td>Magby<br></td>
-			<td>Pinsir<br></td>
-			<td>Magikarp<br></td>
-			<td>Eevee<br></td>
+			<td>Shellder<br><p class="pokemon"></p></td>
+			<td>Gastly<br><p class="pokemon"></p></td>
+			<td>Drowzee<br><p class="pokemon"></p></td>
+			<td>Krabby<br><p class="pokemon"></p></td>
+			<td>Cubone<br><p class="pokemon"></p></td>
+			<td>Marowak (Alola)<br><p class="pokemon"></p></td>
+			<td>Elekid<br><p class="pokemon"></p></td>
+			<td>Magby<br><p class="pokemon"></p></td>
+			<td>Pinsir<br><p class="pokemon"></p></td>
+			<td>Magikarp<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Eevee (Flores)<br></td>
-			<td>Omanyte<br></td>
-			<td>Kabuto<br></td>
-			<td>Aerodactyl<br></td>
-			<td>Articuno<br></td>
-			<td>Zapdos<br></td>
-			<td>Moltres<br></td>
-			<td>Dratini<br></td>
-			<td>Chikorita<br></td>
-			<td>Cyndaquil<br></td>
+			<td>Eevee<br><p class="pokemon"></p></td>
+			<td>Eevee (Flores)<br><p class="pokemon"></p></td>
+			<td>Omanyte<br><p class="pokemon"></p></td>
+			<td>Kabuto<br><p class="pokemon"></p></td>
+			<td>Aerodactyl<br><p class="pokemon"></p></td>
+			<td>Articuno<br><p class="pokemon"></p></td>
+			<td>Zapdos<br><p class="pokemon"></p></td>
+			<td>Moltres<br><p class="pokemon"></p></td>
+			<td>Dratini<br><p class="pokemon"></p></td>
+			<td>Chikorita<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Totodile<br></td>
-			<td>Togepi<br></td>
-			<td>Natu<br></td>
-			<td>Mareep<br></td>
-			<td>Azurill<br></td>
-			<td>Sunkern<br></td>
-			<td>Murkrow<br></td>
-			<td>Misdreavus<br></td>
-			<td>Wynaut<br></td>
-			<td>Pineco<br></td>
+			<td>Cyndaquil<br><p class="pokemon"></p></td>
+			<td>Totodile<br><p class="pokemon"></p></td>
+			<td>Togepi<br><p class="pokemon"></p></td>
+			<td>Natu<br><p class="pokemon"></p></td>
+			<td>Mareep<br><p class="pokemon"></p></td>
+			<td>Azurill<br><p class="pokemon"></p></td>
+			<td>Sunkern<br><p class="pokemon"></p></td>
+			<td>Murkrow<br><p class="pokemon"></p></td>
+			<td>Misdreavus<br><p class="pokemon"></p></td>
+			<td>Wynaut<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Snubbull<br></td>
-			<td>Swinub<br></td>
-			<td>Delibird<br></td>
-			<td>Houndour<br></td>
-			<td>Larvitar<br></td>
-			<td>Lugia<br></td>
-			<td>Ho-Oh<br></td>
-			<td>Poochyena<br></td>
-			<td>Zigzagoon<br></td>
-			<td>Taillow<br></td>
+			<td>Pineco<br><p class="pokemon"></p></td>
+			<td>Snubbull<br><p class="pokemon"></p></td>
+			<td>Swinub<br><p class="pokemon"></p></td>
+			<td>Delibird<br><p class="pokemon"></p></td>
+			<td>Houndour<br><p class="pokemon"></p></td>
+			<td>Larvitar<br><p class="pokemon"></p></td>
+			<td>Lugia<br><p class="pokemon"></p></td>
+			<td>Ho-Oh<br><p class="pokemon"></p></td>
+			<td>Poochyena<br><p class="pokemon"></p></td>
+			<td>Zigzagoon<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Wingull<br></td>
-			<td>Makuhita<br></td>
-			<td>Sableye<br></td>
-			<td> Aron<br></td>
-			<td>Meditite<br></td>
-			<td>Plusle <br></td>
-			<td>Minum<br></td>
-			<td>Budew<br></td>
-			<td>Roselia<br></td>
-			<td>Wailmer<br></td>
+			<td>Taillow<br><p class="pokemon"></p></td>
+			<td>Wingull<br><p class="pokemon"></p></td>
+			<td>Makuhita<br><p class="pokemon"></p></td>
+			<td>Sableye<br><p class="pokemon"></p></td>
+			<td>Aron<br><p class="pokemon"></p></td>
+			<td>Meditite<br><p class="pokemon"></p></td>
+			<td>Plusle <br><p class="pokemon"></p></td>
+			<td>Minum<br><p class="pokemon"></p></td>
+			<td>Budew<br><p class="pokemon"></p></td>
+			<td>Roselia<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Spoink<br></td>
-			<td>Swablu<br></td>
-			<td>Feebas<br></td>
-			<td>Shuppet<br></td>
-			<td>Duskull<br></td>
-			<td>Absol<br></td>
-			<td>Snorunt<br></td>
-			<td>Clamperl<br></td>
-			<td>Luvdisc<br></td>
-			<td>Beldum<br></td>
+			<td>Wailmer<br><p class="pokemon"></p></td>
+			<td>Spoink<br><p class="pokemon"></p></td>
+			<td>Swablu<br><p class="pokemon"></p></td>
+			<td>Feebas<br><p class="pokemon"></p></td>
+			<td>Shuppet<br><p class="pokemon"></p></td>
+			<td>Duskull<br><p class="pokemon"></p></td>
+			<td>Absol<br><p class="pokemon"></p></td>
+			<td>Snorunt<br><p class="pokemon"></p></td>
+			<td>Clamperl<br><p class="pokemon"></p></td>
+			<td>Luvdisc<br><p class="pokemon"></p></td>
 		</tr>
 		<tr>
-			<td>Latias<br></td>
-			<td>Kyogre<br></td>
-			<td>Groudon<br></td>
-			<td>Shinx<br></td>
-			<td>Drifloon<br></td>
-			<td>Meltan<br></td>
-		</tr>
-	</table>
-		<br>
-	<table>
-		<tr>
-			<td><input type="button" value="Clean" onclick="clean()"></td>
-			<td id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
-			<td colspan=""><input type="button" value="Resumen" onclick="resume()"></td>
+			<td>Beldum<br><p class="pokemon"></p></td>
+			<td>Latias<br><p class="pokemon"></p></td>
+			<td>Kyogre<br><p class="pokemon"></p></td>
+			<td>Groudon<br><p class="pokemon"></p></td>
+			<td>Shinx<br><p class="pokemon"></p></td>
+			<td>Drifloon<br><p class="pokemon"></p></td>
+			<td>Meltan<br><p class="pokemon"></p></td>
+			<td colspan="3">Mas shinys proximamente...</td>
 		</tr>	
 		<tr>
 			<tr id="resumen" style="visibility: hidden">
 			<td colspan="5" id="mejores"></td>
 			<td colspan="5" id="peores"></td>
 		</tr>
-</table>
+	</table>
 <p class="fondo">Pokem&oacute;n GO</p>
 <br>
 </body>

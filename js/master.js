@@ -1,14 +1,14 @@
 	var nPersonas=0;
-	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER];
-	var por = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER];
+	var por = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var oneTime= false;
 	var nombres= ["Bulbasur","Charmander","Squirtle","Squirtle (con gafas)","Caterpie","Rattata","Pichu","Pikachu","Raichu (Alola)","Pichu (gorro clebracion)","Pikachu (gorro celebracion)","Pikachu (gorra)","Pikachu (sombrero Halloween)",
-	"Pichu (sombrero Halloween)","Pichu (gorro Navidad)","Pikachu (gorro Navidad)","Pikachu (flores)","Raichu (flores)","Sandshrew","Nidoran","Cleffa","Psyduck","Mankey","Growlithe","Machop","Geodude","Ponyta","Magnemite","Grimer","Shellder",
+	"Pichu (sombrero Halloween)","Pichu (gorro Navidad)","Pikachu (gorro Navidad)","Pikachu (flores)","Raichu (flores)","Sandshrew","Nidoran","Cleffa","Oddish","Psyduck","Mankey","Growlithe","Machop","Geodude","Ponyta","Magnemite","Grimer","Shellder",
 	"Gastly","Drowzee","Krabby","Cubone","Marowak (Alola)","Elekid","Magby","Pinsir","Magikarp","Eevee","Eevee (flores)","Omanyte","Kabuto","Aerodactyl","Articuno","Zapdos","Moltres","Dratini","Chikorita","Cyndaquil","Totodile","Togepi","Natu",
 	"Mareep","Azurril","Sunkern","Murkrow","Misdreavus","Wynaut","Pineco","Snubbul","Swinub","Delibird","Houndour","Larvitar","Lugia","Ho-oh","Poochyena","Zigzagoon","Taillow","Wingull","Makuhita","Sableye","Aron","Meditite","Plusle","Minum",
 	"Budew","Roselia","Wailmer","Spoink","Swablu","Feebas","Shuppet","Duskull","Absol","Snorunt","Clamperl","Luvdisc","Beldum","Latias","Kyogre","Groudon","Shinx","Drifloon","Meltan"];
 	
-	var p = createArray(100,96);
+	var p = createArray(100,97);
 
 	var mayorPorcentaje = [0,0,0,0,0];
 	var menorPorcentaje = [0,0,0,0,0];
@@ -21,9 +21,9 @@
 	}
 
 	function refresh(){
-		var cant = document.getElementsByClassName("pokemon");
+		var cant = document.getElementsByClassName('pokemon');
 		for(var i=0;i<cant.length;i++){
-			cant[i].innerText=pokemons[i];
+				cant[i].innerText=pokemons[i];
 		}
 	}
 
@@ -54,7 +54,7 @@
 	}
 
 	function addNewData(newData){
-		for(var i=0;i<96;i++){
+		for(var i=0;i<por.length;i++){
 			pokemons[i]+=newData[i];
 			p[nPersonas][i]=newData[i];
 		}
@@ -78,16 +78,17 @@
 		setUp();
 		var td = document.getElementById("td1");
 		td.innerText = nPersonas;
+		refresh();
 	}
 
 	function setUp(){
-		for(var i=0;i<96;i++){
+		for(var i=0;i<por.length;i++){
 			if(nPersonas==0){
 				por[i]=0;
 				pokemons[i]=0;
 			}
 			else {
-				var value = trunc((pokemons[i]/nPersonas)*100,2);
+				var value = trunc((pokemons[i]/nPersonas)*100,1);
 				if(value>100){
 					por[i]=100;
 				} 
@@ -96,16 +97,6 @@
 				}
 			}
 		}
-	}
-
-	function Sumar(n){
-		pokemons[n]++;
-		load();
-	}
-
-	function Restar(n){
-		pokemons[n]--;
-		load();
 	}
 
 	function trunc (x, posiciones = 0) {
@@ -167,7 +158,7 @@
 
 	function calcularMayores(){
 		var max1=max2=max3=max4=max5=pokemons.length-1;
-		for(var i=0;i<96;i++){
+		for(var i=0;i<pokemons.length;i++){
 			if(pokemons[i]>pokemons[max5]){
 				if(pokemons[i]>pokemons[max4]){
 					if(pokemons[i]>pokemons[max3]){
@@ -193,7 +184,7 @@
 
 	function calcularMenores(){
 		var min1=min2=min3=min4=min5=pokemons.length-2;
-		for(var i=0;i<96;i++){
+		for(var i=0;i<pokemons.length;i++){
 			if(pokemons[i]>0){
 				if(pokemons[i]<pokemons[min5]){
 					if(pokemons[i]<pokemons[min4]){

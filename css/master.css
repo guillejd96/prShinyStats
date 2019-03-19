@@ -13,6 +13,14 @@ table {
     z-index: 2;
 }
 
+#menu {
+    margin-bottom: 3%;
+    border-style: dotted;
+    border-color: red;
+    border-width: 3px;
+}
+
+
 td {
 	align-content: center;
 	padding: 1%;
@@ -40,8 +48,15 @@ input.jiji {
 	font-size: 1.25rem;
 }
 
-#export{
-	font-size: 1.25rem;
+#padre {
+    text-align: center;
+}
+
+#hijo, #export {
+    background-color: blue;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
 }
 
 .subir{
