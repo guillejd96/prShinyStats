@@ -1,5 +1,5 @@
 	var nPersonas=0;
-	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER];
+	var pokemons = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var por = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 	var oneTime= false;
 	var nombres= ["Bulbasur","Charmander","Squirtle","Squirtle (con gafas)","Caterpie","Rattata","Pichu","Pikachu","Raichu (Alola)","Pichu (gorro clebracion)","Pikachu (gorro celebracion)","Pikachu (gorra)","Pikachu (sombrero Halloween)",
@@ -151,63 +151,11 @@
 	}
 
 	function resume(){
-		calcularMayores();
-		calcularMenores();
+		mayorPorcentaje = Object.keys(pokemons).sort(function(a, b) { return pokemons[b] - pokemons[a]; })
+                   .slice(0, 5).map(Number);
+        menorPorcentaje = Object.keys(pokemons).sort(function(a, b) { return pokemons[a] - pokemons[b]; })
+                   .slice(0, 5).map(Number);
 		showResume();
-	}
-
-	function calcularMayores(){
-		var max1=max2=max3=max4=max5=pokemons.length-1;
-		for(var i=0;i<pokemons.length;i++){
-			if(pokemons[i]>pokemons[max5]){
-				if(pokemons[i]>pokemons[max4]){
-					if(pokemons[i]>pokemons[max3]){
-						if(pokemons[i]>pokemons[max2]){
-							if(pokemons[i]>pokemons[max1]){
-								max1=i;
-							} else {
-								max2=i;
-							}
-						} else {
-							max3=i;
-						}
-					} else {
-						max4=i;
-					}
-				} else {
-					max5=i;
-				}
-			}
-		}
-		mayorPorcentaje = [max1,max2,max3,max4,max5];
-	}
-
-	function calcularMenores(){
-		var min1=min2=min3=min4=min5=pokemons.length-2;
-		for(var i=0;i<pokemons.length;i++){
-			if(pokemons[i]>0){
-				if(pokemons[i]<pokemons[min5]){
-					if(pokemons[i]<pokemons[min4]){
-						if(pokemons[i]<pokemons[min3]){
-							if(pokemons[i]<pokemons[min2]){
-								if(pokemons[i]<pokemons[min1]){
-									min1=i;
-								} else {
-									min2=i;
-								}
-							} else {
-								min3=i;
-							}
-						} else {
-							min4=i;
-						}
-					} else {
-						min5=i;
-					}
-				}
-			}
-		}
-		menorPorcentaje = [min1,min2,min3,min4,min5];
 	}
 
 	function showResume(){
