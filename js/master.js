@@ -20,6 +20,13 @@
 		}
 	}
 
+	function refresh(){
+		var cant = document.getElementsByClassName("pokemon");
+		for(var i=0;i<cant.length;i++){
+			cant[i].innerText=pokemons[i];
+		}
+	}
+
 	function createArray(length) {
 	    var arr = new Array(length || 0),
     	    i = length;
