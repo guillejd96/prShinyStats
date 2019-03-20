@@ -88,13 +88,13 @@
 				pokemons[i]=0;
 			}
 			else {
-				var value = trunc((pokemons[i]/nPersonas)*100,1);
-				if(value>100){
-					por[i]=100;
-				} 
-				else {
-					por[i]=value;	
+				var cont = 0;
+				for(var j=0;j<nPersonas;j++){
+					if(p[j][i]>0) {
+						cont++;
+					}
 				}
+				por[i] = trunc((cont/nPersonas),2)*100;
 			}
 		}
 	}
@@ -121,7 +121,15 @@
 
 		saveButton.onclick = function(){
 			var filename = input.value+".txt";
-			var data = nPersonas+"\r\n"+pokemons.toString()+"\r\n"+por.toString();
+			var data = "";
+			for(var i=0;i<nPersonas;i++){
+				var line = "";
+				for(var j=0;j<p[0].length;j++){
+					line+=p[i][j]+",";
+				}
+				line = line.substring(0,line.length-1);
+				data+=line+"\r\n";
+			}
 			download(data,filename,'text/plain');
 			td.removeChild(saveButton);
 			td.replaceChild(exportButton,input);
@@ -185,6 +193,16 @@
 		for(var i=0;i<6;i++){
 			tdMejores.appendChild(list1[i]);
 			tdPeores.appendChild(list2[i]);
+		}
+
+		var tdMatriz = document.getElementById("tdMatriz");
+		for(var i=0;i<nPersonas;i++){
+			var aux = "";
+			for(var j=0;j<p[0].length;j++){
+				aux+=p[i][j]+",";
+			}
+			aux = aux.substring(0,aux.length-1);
+			tdMatriz.appendChild(document.createTextNode(aux+"\r\n"));
 		}
 
 		tableResumen.style.visibility="visible";
