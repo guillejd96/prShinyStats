@@ -4,13 +4,23 @@ body {
 	margin: 0 auto;
 	font-family: Comic Sans;
 }
-table {
+#tablePokemons {
 	margin: 3% 1%;
 	border-width: 1px;
 	border-style: solid;
+    border-color: blue;
 	width: 98%;
-    position: absolute;
     z-index: 2;
+}
+
+#resumen {
+
+}
+
+#ej {
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
 }
 
 #menu {
@@ -20,6 +30,9 @@ table {
     border-width: 3px;
 }
 
+#tdMatriz{
+    border-width: 0px;
+}
 
 td {
 	align-content: center;
@@ -27,6 +40,9 @@ td {
 	overflow: visible;
 	width: 10%;
 	height: 10%;
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
 }
 
 input.jiji {
