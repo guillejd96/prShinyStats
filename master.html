@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inic shinyStats</title>
+	<title>Master shinyStats</title>
 	<link rel="stylesheet" type="text/css" href="css/master.css">
 	<script type="text/javascript" src="js/master.js"></script>
 </head>
@@ -12,7 +12,7 @@
 		<div id="hijo"><input type="button" value="Resumen" onclick="resume()"></div>
 	</div>
 
-	<table border = "1">
+	<table id="tablePokemons">
 		<tr>
 			<td colspan="10">
 				<div.contenedor>
@@ -40,7 +40,7 @@
 		<tr>
 			<td>Pikachu (Gorro celebraci&oacute;n)<br><p class="pokemon"></p></td>
 			<td>Pikachu (Gorra)<br><p class="pokemon"></p></td>
-			<td>Pikachu (Sombrero Halloween)<br<p class="pokemon"></p>></td>
+			<td>Pikachu (Sombrero Halloween)<br><p class="pokemon"></p></td>
 			<td>Pichu (Sombrero Halloween)<br><p class="pokemon"></p></td>
 			<td>Pichu (Gorro Navidad)<br><p class="pokemon"></p></td>
 			<td>Pikachu (Gorro Navidad)<br><p class="pokemon"></p></td>
@@ -142,11 +142,21 @@
 			<td>Drifloon<br><p class="pokemon"></p></td>
 			<td>Meltan<br><p class="pokemon"></p></td>
 			<td colspan="3">Mas shinys proximamente...</td>
-		</tr>	
+		</tr>
+	</table>
+	<table id="resumen" style="visibility: hidden">
 		<tr>
-			<tr id="resumen" style="visibility: hidden">
 			<td colspan="5" id="mejores"></td>
-			<td colspan="5" id="peores"></td>
+			<td colspan="5" id="peores"></td>	
+		</tr>
+		<tr>
+			<td colspan="10" id="matriz">
+				<table id="ej">
+					<tr>
+						<td colspan="10" id="tdMatriz"></td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 	</table>
 <p class="fondo">Pokem&oacute;n GO</p>
