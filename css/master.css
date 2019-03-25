@@ -105,5 +105,5 @@ input.jiji {
     opacity: 0.25;
     font-weight: bolder;
     font-family: fantasy;
-    z-index: 1;
+    z-index: -99;
 }
