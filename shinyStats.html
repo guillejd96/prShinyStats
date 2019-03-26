@@ -80,6 +80,32 @@ input.jiji {
     font-family: fantasy;
     z-index: 1;
 }
+.inputFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputFile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    font-family: Calibri;
+    color: white;
+    background-color: grey;
+    display: inline-block;
+}
+
+label {
+    padding: 2px;
+    border-radius: 10%;
+}
+
+.inputFile:focus + label,
+.inputFile + label:hover {
+    background-color: black;
+}
 	</style>
 	<script type="text/javascript">
 			var nPersonas=1;
@@ -184,15 +210,20 @@ input.jiji {
 		saveButton.id="saveButton";
 		saveButton.value = "Guardar";
 
+		var label = td.lastChild;
+		alert(label);
+
 		saveButton.onclick = function(){
 			var filename = input.value+".txt";
 			var data =pokemons.toString();
 			download(data,filename,'text/plain');
 			td.removeChild(saveButton);
 			td.replaceChild(exportButton,input);
+			td.appendChild(label);
 		};
 
 		td.replaceChild(input,exportButton);
+		td.removeChild(label);
 		td.appendChild(saveButton);
 	}
 
@@ -218,7 +249,8 @@ input.jiji {
 </head>
 <body onload="load()">
 	<br>
-	<input type="button" value="Clean" onclick="clean()"> <input type="file" id="inputFile" onchange="leerArchivo(this.files[0])">
+	<input type="file" id="file" class="inputFile" onchange="leerArchivo(this.files[0])"><label for="file">Importar</label>
+	<input type="button" id="clean" value="Clean" class="inputFile" onclick="clean()"><label for="clean">Clean</label>
 	<table border = "1" id="data">
 		<tr>
 			<td class="pokemon">Bulbasaur <br> <input type="button" value="+" onclick="Sumar(0)"> <input type="button" value="-" onclick="Restar(0)"><p>0</p></td>
@@ -342,9 +374,9 @@ input.jiji {
 			<td class="pokemon">Treecko<br><input type="button" value="+" onclick="Sumar(99)"> <input type="button" value="-" onclick="Restar(99)"><p>0</p></td>
 		</tr>
 		<tr>
-			<td colspan="8"></td>
-			<td id="export"><input type="button" value="Exportar" onclick="changeExport()"></td>
-			<td><input type="button" value="Enviar" onclick="enviarEmail()"></td>
+			<td colspan="8"><p>M&aacute;s shinys pr&oacute;ximamente...</p></td>
+			<td id="export"><input type="button" id="exportar" value="Exportar" class="inputFile" onclick="changeExport()"><label for="exportar">Exportar</label></td>
+			<td><input type="button" id="enviar" value="Enviar" class="inputFile" onclick="enviarEmail()"><label for="enviar">Enviar</label></td>
 		</tr>
 </table>
 <p class="fondo">Pokem&oacute;n GO</p>
