@@ -2,7 +2,7 @@ body {
 	background-color: #42a1f4;
 	text-align: center;
 	margin: 0 auto;
-	font-family: Comic Sans;
+	font-family: Calibri;
 }
 #tablePokemons {
 	margin: 3% 1%;
@@ -106,4 +106,46 @@ input.jiji {
     font-weight: bolder;
     font-family: fantasy;
     z-index: -99;
+}
+
+.inputfile1, .inputfile2 {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile1 + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    font-family: Calibri;
+    color: white;
+    background-color: grey;
+    display: inline-block;
+}
+
+.inputfile2 + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    font-family: Calibri;
+    color: white;
+    background-color: grey;
+    display: inline-block;
+}
+
+label {
+    padding: 2px;
+    border-radius: 10%;
+}
+
+.inputfile1:focus + label,
+.inputfile1 + label:hover {
+    background-color: black;
+}
+
+.inputfile2:focus + label,
+.inputfile2 + label:hover {
+    background-color: black;
 }

@@ -20,7 +20,10 @@
 							<p class="Número de personas:">Personas <br><b id="td1"></b>	</p>
 					</div.contenido>
 					<div.contenido>
-						<input type="file" id="file-input" multiple>
+						<input type="file" id="file1" class="inputfile1" onchange="leerArchivos(this.files)" multiple>
+						<label for="file1" id="label1">Importar fichero</label>
+						<input type="file" id="file2" class="inputfile2" onchange="leerDatos(this.files[0])">
+						<label for="file2" id="label2">Cargar datos</label>
 					</div.contenido>
 				</div.contenedor>	
 			</td>

@@ -13,10 +13,9 @@
 	var mayorPorcentaje = [0,0,0,0,0];
 	var menorPorcentaje = [0,0,0,0,0];
 
-	function leerArchivos(e){
-		var archivos = e.target.files;
-		for(var i=0;i<archivos.length;i++){
-			leerArchivo(archivos[i]);
+	function leerArchivos(data){
+		for(var i=0;i<data.length;i++){
+			leerArchivo(data[i]);
 		}
 	}
 
@@ -53,10 +52,29 @@
   		lector.readAsText(file);
 	}
 
+	function leerDatos(datos){
+		if (datos==null || datos=="") {
+  			alert("Selecciona un fichero de datos");
+    		return;
+  		}
+  		var lector = new FileReader();
+  		lector.onload = function(datos) {
+  			var contenido = datos.target.result;
+    		var array = contenido.split("\r\n");
+    		for(var i=0;i<array.length;i++){
+    			var newData = JSON.parse("["+array[i]+"]");
+    			addNewData(newData);
+    		}
+    		load();
+ 		 };
+ 		 lector.readAsText(datos);
+	}
+
 	function addNewData(newData){
-		for(var i=0;i<por.length;i++){
-			pokemons[i]+=newData[i];
-			p[nPersonas][i]=newData[i];
+		for(var i=0;i<newData.length;i++){
+			var aux = parseInt(pokemons[i])+parseInt(newData[i]);
+			pokemons[i]=aux;
+			p[nPersonas][i]=parseInt(newData[i]);
 		}
 		nPersonas++;
 	}
@@ -66,15 +84,10 @@
 		load();
 		closeResume();
 
-		document.getElementById("file-input").value="";
+		document.getElementById("file1").value="";
 	}
 
 	function load(){
-		if(!oneTime){
-			oneTime=true;
-			var input = document.getElementById("file-input");
-			input.addEventListener('change', leerArchivos, false);
-		}
 		setUp();
 		var td = document.getElementById("td1");
 		td.innerText = nPersonas;
