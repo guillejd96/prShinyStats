@@ -141,7 +141,8 @@
 					line+=p[i][j]+",";
 				}
 				line = line.substring(0,line.length-1);
-				data+=line+"\r\n";
+				if((i+1)==nPersonas) data+=line;
+				else data+=line+"\r\n";
 			}
 			download(data,filename,'text/plain');
 			td.removeChild(saveButton);
