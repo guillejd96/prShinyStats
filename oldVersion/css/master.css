@@ -1,0 +1,151 @@
+body {
+	background-color: #42a1f4;
+	text-align: center;
+	margin: 0 auto;
+	font-family: Calibri;
+}
+#tablePokemons {
+	margin: 3% 1%;
+	border-width: 1px;
+	border-style: solid;
+    border-color: blue;
+	width: 98%;
+    z-index: 2;
+}
+
+#resumen {
+
+}
+
+#ej {
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
+}
+
+#menu {
+    margin-bottom: 3%;
+    border-style: dotted;
+    border-color: red;
+    border-width: 3px;
+}
+
+#tdMatriz{
+    border-width: 0px;
+}
+
+td {
+	align-content: center;
+	padding: 1%;
+	overflow: visible;
+	width: 10%;
+	height: 10%;
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
+}
+
+input.jiji {
+	background-color: #a2bae5;
+	width: 1.75rem;
+	height: 1.75rem;
+    margin: 0% 1%;
+}
+#td1 {
+	font-style: italic;
+	font-size: 1.25rem;
+}
+#por {
+	font-style: italic;
+	font-size: 1.25rem;
+}
+#results {
+	font-style: italic;
+	font-size: 1.25rem;
+}
+
+#padre {
+    text-align: center;
+}
+
+#hijo, #export {
+    background-color: blue;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.subir{
+    padding: 5px 10px;
+    background: #ff1616;
+    color:#fff;
+    border:0px solid black;
+    border-radius: 1%;
+}
+.contenedor {
+    display: flex;
+    width: 16%;
+    position: fixed;
+    top: 4%;
+    height: 3%;
+    background-color: blue;
+    padding: 0.75rem;
+}
+.contenido {
+    width: 14%;
+}
+.Personas { 
+    list-style: none; }
+.fondo {
+    font-size: 16rem;
+    text-align: center;
+    margin: 15% 25%;
+    position: fixed;
+    top: 0%;
+    opacity: 0.25;
+    font-weight: bolder;
+    font-family: fantasy;
+    z-index: -99;
+}
+
+.inputfile1, .inputfile2 {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile1 + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    font-family: Calibri;
+    color: white;
+    background-color: grey;
+    display: inline-block;
+}
+
+.inputfile2 + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    font-family: Calibri;
+    color: white;
+    background-color: grey;
+    display: inline-block;
+}
+
+label {
+    padding: 2px;
+    border-radius: 10%;
+}
+
+.inputfile1:focus + label,
+.inputfile1 + label:hover {
+    background-color: black;
+}
+
+.inputfile2:focus + label,
+.inputfile2 + label:hover {
+    background-color: black;
+}
