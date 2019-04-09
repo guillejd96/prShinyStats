@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Introducir usuario</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		
+		function guardarDatos(){
+			var url = $('#file').val();
+			if (url == null) {
+		            $('#error').text('Selecciona un fichero de datos individual');
+		            $('#error').css('color', 'red');
+		        } else {
+		            $('#error').text('Cargando...');
+		            $.get('insertarUsuario.php?url='+url, function(data) {
+		            	if(data=="1"){
+		            		$('#error').text('Se han añadido los datos correctamente');
+		            		$('#error').css('color', 'green');
+		            	}
+		            	else if(data=="2"){
+		            		$('#error').text('Error al insertar nuevo usuario');
+		            		$('#error').css('color', 'red');
+		            	}
+		            	else {
+		            		$('#error').text('Error en la insercion de datos');
+		            		$('#error').css('color', 'red');
+		            	}
+		            });
+	            }
+		}
+
+		$(document).ready(function() {
+			$('#save').click(guardarDatos);	
+		});
+	</script>
+</head>
+<body>
+	<h1>Introducir nuevo usuario</h1>
+	<p>
+        <input type="file" id="file" class="input-default-js">
+    </p>
+    <input type="button" id="save" class="btn btn-outline-primary" value="Guardar">
+    <input type="button" value="Volver a Inicio" class="btn btn-outline-primary" onclick="location.href='index.php'">
+    <p id="error"></p>
+</body>
+</html>

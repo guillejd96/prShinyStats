@@ -1,0 +1,3 @@
+AJAX = Asynchronous JavaScript And XML.
+AJAX is not a programming language.
+AJAX just uses a combination of:

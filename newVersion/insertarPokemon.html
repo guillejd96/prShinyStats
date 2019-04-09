@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Insertar Pokemon</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#submit').click(function(event) {
+				$("#error").text("");
+				var nombre = $('#nombre').val();
+				var nP = $("#nPokedex").val();
+				var url = 'isPokemonInDB.php?pokemon='+nombre+'&np='+nP;
+				$("#error").text("Cargando...");
+				$("#error").css('color', 'black');
+				$.get(url, function(data) {
+					if(data=="0"){
+						$("#error").text("Introduciendo Pokemon en la base de datos...");
+						$("#error").css('color', 'black');
+						$.get('nuevoPokemon.php?pokemon='+nombre+'&np='+nP, function(data) {
+								if(data=="1"){
+									$("#error").text("El Pokemon ha sido guardado correctamente");
+									$("#error").css('color', 'green');
+								}	else {
+									$("#error").text("Error en la base de datos");
+									$("#error").css('color', 'red');
+								}
+						});
+					}
+					else {
+						$("#error").text("El Pokemon ya existe en la base de datos");
+						$("#error").css('color', 'red');
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Insertar nuevo Pokemon shiny</h1>
+		<table>
+			<tr>
+				<td><p>Nombre:</p></td>
+				<td><input type="text" id="nombre" name="nombre"></td>
+			</tr>
+			<tr>
+				<td><p>N&ordm; Pokedex:</p></td>
+				<td><input type="number" name="nPokedex" id="nPokedex"></td>
+			</tr>
+		</table>
+		<p>
+			<input type="button" id="submit" value="Guardar" class="btn btn-outline-primary">
+			<input type="button" value="Volver a Inicio" class="btn btn-outline-primary" onclick="location.href='index.php'">
+		</p>
+ 		<p id="error"></p>
+
+</body>
+</html>

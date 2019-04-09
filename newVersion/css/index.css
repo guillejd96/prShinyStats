@@ -1,0 +1,14 @@
+body {
+    background-color: #9CCBE4;
+    text-align: center;
+    margin: 0 auto !important;
+}
+
+table {
+    margin: 3% auto;
+}
+
+td {
+	vertical-align: middle;
+	width: 300px;
+}

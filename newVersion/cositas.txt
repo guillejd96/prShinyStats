@@ -1,0 +1,8 @@
+AJAX
+JAVASCRIPT Y XML ASINCRONO
+
+HTML CSS JS/JQuery
+PHP		Bases de Datos
+
+registro.html -> Formulario para registrarse donde en form action="" conduce a un php
+guardar.php -> Se recogen los datos del formulario y se guardan en bd 
